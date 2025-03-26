@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 2592098904
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: asset_navigator
+      Dependencies: {}
+    Info_1:
+      Name: asset_jingle
+      Dependencies: {}
+    Info_2:
+      Name: asset_timeline
+      Dependencies:
+        Dependency_0: asset_navigator
+        Dependency_1: asset_jingle
+        Dependency_2: asset_bgm
+        Dependency_3: asset_voice
+        Dependency_4: asset_signageui
+    Info_3:
+      Name: asset_bgm
+      Dependencies: {}
+    Info_4:
+      Name: asset_virtual_field
+      Dependencies: {}
+    Info_5:
+      Name: asset_enemy
+      Dependencies: {}
+    Info_6:
+      Name: asset_scenes
+      Dependencies:
+        Dependency_0: asset_navigator
+        Dependency_1: asset_timeline
+    Info_7:
+      Name: asset_se
+      Dependencies: {}
+    Info_8:
+      Name: asset_voice
+      Dependencies: {}
+    Info_9:
+      Name: asset_signageui
+      Dependencies: {}

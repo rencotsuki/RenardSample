@@ -1,0 +1,106 @@
+{
+    "CreateTime": "2025-03-26 07:48:55",
+    "CommitHash": "c662d1c8355cdf21e43f09e86e77acf6f8d15b42",
+    "PlatformMaster": {
+        "AssetName": "Windows",
+        "AssetSize": 1295,
+        "AssetHash": "",
+        "AssetCRC": 2592098904,
+        "ManifestName": "Windows.manifest",
+        "ManifestSize": 932
+    },
+    "_keys": [
+        "asset_bgm",
+        "asset_enemy",
+        "asset_jingle",
+        "asset_navigator",
+        "asset_scenes",
+        "asset_se",
+        "asset_signageui",
+        "asset_timeline",
+        "asset_virtual_field",
+        "asset_voice"
+    ],
+    "_values": [
+        {
+            "AssetName": "asset_bgm",
+            "AssetSize": 3521681,
+            "AssetHash": "58d5bab5d3abccacdbd978f024a3116b",
+            "AssetCRC": 2011840818,
+            "ManifestName": "asset_bgm.manifest",
+            "ManifestSize": 713
+        },
+        {
+            "AssetName": "asset_enemy",
+            "AssetSize": 1736995,
+            "AssetHash": "ef83df14b30121e40d0c341d6c5840de",
+            "AssetCRC": 3327693182,
+            "ManifestName": "asset_enemy.manifest",
+            "ManifestSize": 15817
+        },
+        {
+            "AssetName": "asset_jingle",
+            "AssetSize": 306702,
+            "AssetHash": "e9b01c47bf26c6af930ec69c9054781d",
+            "AssetCRC": 3333608147,
+            "ManifestName": "asset_jingle.manifest",
+            "ManifestSize": 520
+        },
+        {
+            "AssetName": "asset_navigator",
+            "AssetSize": 11449340,
+            "AssetHash": "3f8178dacf7149b05db19fe39aed710c",
+            "AssetCRC": 3821225403,
+            "ManifestName": "asset_navigator.manifest",
+            "ManifestSize": 9653
+        },
+        {
+            "AssetName": "asset_scenes",
+            "AssetSize": 4838922,
+            "AssetHash": "2d23cf2d686df0f15fd6d5c67675f03f",
+            "AssetCRC": 2725233742,
+            "ManifestName": "asset_scenes.manifest",
+            "ManifestSize": 4256
+        },
+        {
+            "AssetName": "asset_se",
+            "AssetSize": 75039,
+            "AssetHash": "112248fbac73e07899dd6e5c8166708c",
+            "AssetCRC": 4266818873,
+            "ManifestName": "asset_se.manifest",
+            "ManifestSize": 649
+        },
+        {
+            "AssetName": "asset_signageui",
+            "AssetSize": 908074,
+            "AssetHash": "febdccdcf597e81c7b6b56ee94acfd01",
+            "AssetCRC": 3026860482,
+            "ManifestName": "asset_signageui.manifest",
+            "ManifestSize": 1178
+        },
+        {
+            "AssetName": "asset_timeline",
+            "AssetSize": 16368,
+            "AssetHash": "1ebc6ca47a051c8c22b329035284d92a",
+            "AssetCRC": 1725854576,
+            "ManifestName": "asset_timeline.manifest",
+            "ManifestSize": 4384
+        },
+        {
+            "AssetName": "asset_virtual_field",
+            "AssetSize": 3346130,
+            "AssetHash": "1111807d8484d5d51965860e822b6236",
+            "AssetCRC": 1004123494,
+            "ManifestName": "asset_virtual_field.manifest",
+            "ManifestSize": 903
+        },
+        {
+            "AssetName": "asset_voice",
+            "AssetSize": 7600091,
+            "AssetHash": "02e00bbbea718772206ab974c0c7f8b8",
+            "AssetCRC": 269667692,
+            "ManifestName": "asset_voice.manifest",
+            "ManifestSize": 2738
+        }
+    ]
+}

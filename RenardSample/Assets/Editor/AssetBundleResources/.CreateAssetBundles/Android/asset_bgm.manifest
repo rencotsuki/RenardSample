@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 3108999670
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d9b7fa60705ee3cf3654fd53ff00653e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: d9b7fa60705ee3cf3654fd53ff00653e
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/04_Sounds/BGM/bgm_game_result.mp3
+- Assets/Editor/AssetBundleResources/04_Sounds/BGM/bgm_demo.mp3
+- Assets/Editor/AssetBundleResources/04_Sounds/BGM/bgm_game_play.mp3
+- Assets/Editor/AssetBundleResources/04_Sounds/BGM/bgm_information.mp3
+Dependencies: []

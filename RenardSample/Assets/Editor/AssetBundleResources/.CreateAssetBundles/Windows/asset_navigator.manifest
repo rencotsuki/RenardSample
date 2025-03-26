@@ -1,0 +1,159 @@
+ManifestFileVersion: 0
+CRC: 3821225403
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3f8178dacf7149b05db19fe39aed710c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 845f8a4380545b05df2b2d113287fab2
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3f8178dacf7149b05db19fe39aed710c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 177ea458e237fee41b0902e3006c744b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97a39af5b64ede64e86b92b5bf94a0e7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 39a6109e3ad7caf4b9d9cefaa431dc37, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8c8b2024ae0d0944eb878d90212bf21b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 070261d0bed515c49b481874daeac39e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 88684271e27adb843b6570957c9e7637, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0a942e03b39600e41a1b161e958048f7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 35bfb658269b2af478e501de243deda6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bfba4ccd3f854e64f868ce83553071a9, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: VRM10
+  ClassName: UniVRM10.CurveMapper
+- AssemblyName: VRM10
+  ClassName: UniVRM10.MorphTargetBinding
+- AssemblyName: VRM10
+  ClassName: UniVRM10.RendererFirstPersonFlags
+- AssemblyName: VRM10
+  ClassName: UniVRM10.VRM10ObjectExpression
+- AssemblyName: VRM10
+  ClassName: UniVRM10.VRM10ObjectFirstPerson
+- AssemblyName: VRM10
+  ClassName: UniVRM10.VRM10ObjectLookAt
+- AssemblyName: VRM10
+  ClassName: UniVRM10.VRM10ObjectMeta
+- AssemblyName: VRM10
+  ClassName: UniVRM10.Vrm10InstanceSpringBone
+- AssemblyName: VRM10
+  ClassName: UniVRM10.Vrm10InstanceSpringBone/Spring
+Assets:
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/Shader_NoneNormal.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_13.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_07.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV18.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_001_01_Bottoms_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV04.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_09.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_16.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_01.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/VRM/Suzy_1.0.0_high.vrm
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_06.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_23.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_FaceMouth_00_FACE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_22.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV17.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_EyeHighlight_00_EYE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV15.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV30.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_008_01_Shoes_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV33.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_04.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_15.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_05.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/thumbnail__VRM10.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_002_04_Tops_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_007_03_Tops_01_CLOTH_01.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_007_03_Tops_01_CLOTH_02.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_19.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_18.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_Hair_00_HAIR_02.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/Accessory_CatEar_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_005_01_Tops_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_17.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_resetpose.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_HairBack_00_HAIR.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_02.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_10.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_21.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_24.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/N00_000_Hair_00_nml_01.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_Face_00_SKIN.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/Humanoid Dying.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_idle.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV25.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_EyeWhite_00_EYE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV16.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV03.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_20.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_25.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV14.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/MatcapWarp.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_FaceEyeline_00_FACE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/N00_000_00_Face_00_out.linear.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/NavigatorObject.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_12.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV01.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV29.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV31.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV07.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/N00_000_Hair_00_nml_02.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV32.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_idle2.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_FaceBrow_00_FACE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV05.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_EyeIris_00_EYE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/Shader_NoneBlack.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_14.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_03.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/N00_000_00_HairBack_00_nml.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_Hair_00_HAIR_01.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV06.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_11.normal.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV26.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV13.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV27.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/Accessory_CatTail_01_CLOTH.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Textures/_08.png
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV02.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Animations/navigator_motion_CV28.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_FaceEyelash_00_FACE.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_000_00_Body_00_SKIN.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Navigator/Materials/N00_007_03_Tops_01_CLOTH_03.mat
+Dependencies: []
