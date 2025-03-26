@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: game_score_point
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 256
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: efda96886619ae04d950d1aeb87a7921, type: 3}
+    - {fileID: 2800000, guid: 976f2df8fb43ddd44828237cede20a67, type: 3}
+    - {fileID: 2800000, guid: 49c4cfaf7de45d4408da337b6d5acd74, type: 3}
+    - {fileID: 2800000, guid: 75a84a59cac67f740a38ea945eee79ce, type: 3}
+    - {fileID: 2800000, guid: ada16acb3ca96484381a1bd2a76ad939, type: 3}
+    - {fileID: 2800000, guid: 850086bdb9190bd478290e7611dabd11, type: 3}
+    - {fileID: 2800000, guid: e84bc6be0341c4143ac025e2e731ed32, type: 3}
+    - {fileID: 2800000, guid: 5a8c05781e4f2c347a3837921a854fc7, type: 3}
+    - {fileID: 2800000, guid: dcb762bf69862d146a8b5d247acdf37a, type: 3}
+    - {fileID: 2800000, guid: 760ff30e4049c3a44811b8af329044ba, type: 3}
+    - {fileID: 2800000, guid: 919038652555c314d9e781c04c4d252e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 919038652555c314d9e781c04c4d252e: 21300000
+    - 5a8c05781e4f2c347a3837921a854fc7: 21300000
+    - efda96886619ae04d950d1aeb87a7921: 21300000
+    - 976f2df8fb43ddd44828237cede20a67: 21300000
+    - 75a84a59cac67f740a38ea945eee79ce: 21300000
+    - ada16acb3ca96484381a1bd2a76ad939: 21300000
+    - 850086bdb9190bd478290e7611dabd11: 21300000
+    - 760ff30e4049c3a44811b8af329044ba: 21300000
+    - e84bc6be0341c4143ac025e2e731ed32: 21300000
+    - 49c4cfaf7de45d4408da337b6d5acd74: 21300000
+    - dcb762bf69862d146a8b5d247acdf37a: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 919038652555c314d9e781c04c4d252e, type: 3}
+  - {fileID: 21300000, guid: 5a8c05781e4f2c347a3837921a854fc7, type: 3}
+  - {fileID: 21300000, guid: efda96886619ae04d950d1aeb87a7921, type: 3}
+  - {fileID: 21300000, guid: 976f2df8fb43ddd44828237cede20a67, type: 3}
+  - {fileID: 21300000, guid: 75a84a59cac67f740a38ea945eee79ce, type: 3}
+  - {fileID: 21300000, guid: ada16acb3ca96484381a1bd2a76ad939, type: 3}
+  - {fileID: 21300000, guid: 850086bdb9190bd478290e7611dabd11, type: 3}
+  - {fileID: 21300000, guid: 760ff30e4049c3a44811b8af329044ba, type: 3}
+  - {fileID: 21300000, guid: e84bc6be0341c4143ac025e2e731ed32, type: 3}
+  - {fileID: 21300000, guid: 49c4cfaf7de45d4408da337b6d5acd74, type: 3}
+  - {fileID: 21300000, guid: dcb762bf69862d146a8b5d247acdf37a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PartsPtsUnit
+  - PartsPts7
+  - PartsPts0
+  - PartsPts1
+  - PartsPts3
+  - PartsPts4
+  - PartsPts5
+  - PartsPts9
+  - PartsPts6
+  - PartsPts2
+  - PartsPts8
+  m_RenderDataMap: {}
+  m_Tag: game_score_point
+  m_IsVariant: 0

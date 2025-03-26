@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UnityChanToonShaderVariants
+  m_Shaders:
+  - first: {fileID: 4800000, guid: aebd33b74ef849a4882b4a8d55f0f0c9, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _EMISSIVE_SIMPLE
+        passType: 4
+      - keywords: _OUTLINE_NML
+        passType: 4
+      - keywords: 
+        passType: 8
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 0a05dd221bacbb448afac3d63e6bd833, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _EMISSIVE_SIMPLE
+        passType: 4
+      - keywords: _OUTLINE_NML
+        passType: 4
+      - keywords: 
+        passType: 8
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: e8e7d781c3155254b9ea8956c5bd1218, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _EMISSIVE_SIMPLE
+        passType: 4
+      - keywords: _OUTLINE_NML
+        passType: 4
+      - keywords: 
+        passType: 8
+      - keywords: SHADOWS_DEPTH
+        passType: 8
