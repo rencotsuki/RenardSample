@@ -25,10 +25,6 @@ Thumbs.db
 *.vscode*
 *.vs*
 
-RenardSample/ExportedObj/
-RenardSample/Assets/UnityVS
-RenardSample/Assets/UnityVS.meta
-
 # ============ #
 # for others   #
 # ============ #
@@ -39,9 +35,6 @@ sysinfo.txt #Unity3D Generated File On Crash Reports
 
 */Export
 QHierarchy.meta
-
-SignageHADO/Assets/Fristy Fantasy Lands 1
-SignageHADO/Assets/Fristy Fantasy Lands 1.meta
 
 ### https://raw.github.com/github/gitignore/65bb94ddc106488eb227d147e3be956a6662857c/Unity.gitignore
 
@@ -98,7 +91,7 @@ sysinfo.txt
 
 # Builds
 *.apk
-##*.unitypackage
+*.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -118,20 +111,5 @@ fastlane/report.xml
 # android?
 *.toc
 
-# ================ #
-# Project original #
-# ================ #
-
-# Licenses
-CreateLicenses/
-License/
-
-# Tools
-Tools/
-
-# Project Configs
-ApplicationVersion.asset
-ApplicationVersion.asset.meta
-
-# AssetBundle
-RenardSample/Assets/Editor/CreateAssetBundles~
+# Readme
+README.md.meta
