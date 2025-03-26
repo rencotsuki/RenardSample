@@ -35,6 +35,10 @@ Renardは、元々個人的に何かゲームコンテンツを作ろうと思�
 ⇒[プレイ中の動画](https://drive.google.com/file/d/1wbb4lTbfZR02hn_THypDpddlKjyyOrcb/view?usp=drive_link)  
 ⇒[通しプレイ画面の動画](https://drive.google.com/file/d/1sl0XN9ofkdylaPNJ0MmVHTIzuo6uTch_/view?usp=drive_link)  
 
+実際にSignageHADOの業務で私が作成した開発の仕様書も、  
+見せられる範囲のもので一部ですがこちらになります。    
+<img width="100" alt="仕様書①" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_01.png"> <img width="100" alt="仕様書②" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_02.png"> <img width="100" alt="仕様書③" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_03.png"> <img width="100" alt="仕様書④" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_04.png">    
+
 ## 補足
 このリポジトリでは、１ファイルが大きい(10MB over)データを取り扱っているため  
 **GitLFS** の設定がされています。  
