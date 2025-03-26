@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Liner_HDN_MT_EnergyBall_Dot
+  m_Shader: {fileID: 4800000, guid: b29a52da140c3a142b5f548cfa72a727, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture_Dot:
+        m_Texture: {fileID: 2800000, guid: 7c080ca837148fa4897d09dd31556461, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_Dot_M:
+        m_Texture: {fileID: 2800000, guid: 7c080ca837148fa4897d09dd31556461, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_Dot_S:
+        m_Texture: {fileID: 2800000, guid: 64afc1df3111d1e458f4ae351f276aa1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_Ind:
+        m_Texture: {fileID: 2800000, guid: 8b9158fe333507647a0f91a233bfd5aa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_Ref:
+        m_Texture: {fileID: 2800000, guid: 3e673fb152208c34583bfea5c56c20cc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _Outline_Width: 0.5
+    - _Value_Alpha: 1
+    m_Colors:
+    - _Color_Base: {r: 0.3455882, g: 0.64797163, b: 1, a: 1}
+    - _Color_Outline: {r: 0.5955882, g: 1, b: 0.9665315, a: 1}
+    - _anchorPos: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

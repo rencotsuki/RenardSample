@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 1818099174
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6bfcd0dfd4c94a8e7c458a02e42bdf69
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 6bfcd0dfd4c94a8e7c458a02e42bdf69
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/04_Sounds/Jingle/jingle_finish_countdown.mp3
+Dependencies: []

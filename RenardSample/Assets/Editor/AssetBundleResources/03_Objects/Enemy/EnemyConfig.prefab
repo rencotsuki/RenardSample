@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1334994772565370141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976479324107119925}
+  - component: {fileID: -1293808961862261462}
+  m_Layer: 0
+  m_Name: EnemyConfig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &976479324107119925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334994772565370141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1293808961862261462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334994772565370141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec7ec3d80f92144c8ee1ee040611b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDebugLog: 0
+  timelineAssets:
+  - {fileID: 11400000, guid: 6fb7912d736f74c408c1760121bd7bfb, type: 2}
+  comboBonus:
+  - Count: 5
+    Point: 1500
+  - Count: 10
+    Point: 2000
+  - Count: 15
+    Point: 2500
+  - Count: 20
+    Point: 3000
+  - Count: 30
+    Point: 4000
+  - Count: 40
+    Point: 5000
+  killBonus:
+  - Count: 5
+    Point: 800
+  - Count: 10
+    Point: 1300
+  - Count: 15
+    Point: 1400
+  - Count: 20
+    Point: 1700
+  - Count: 25
+    Point: 2000
+  - Count: 30
+    Point: 2300
+  - Count: 35
+    Point: 2600
+  - Count: 40
+    Point: 2900
+  scoreRank:
+  - Rank: 0
+    Point: 10000
+  - Rank: 1
+    Point: 5001
+  - Rank: 2
+    Point: 3001
+  - Rank: 3
+    Point: 0
+  enemies:
+  - No: 1
+    Name: "\u30D0\u30C3\u30C8\u30F3"
+    Point: 300
+    PoolNum: 5
+    ObjectName: Enemy01
+    EnemySE:
+      SpawnSE: 
+      HitSE: se_enemy_hit
+      BreakSE: 
+  - No: 2
+    Name: "\u30D0\u30C3\u30C8\u30F3(\u30EC\u30A2)"
+    Point: 1000
+    PoolNum: 2
+    ObjectName: Enemy02
+    EnemySE:
+      SpawnSE: 
+      HitSE: se_enemy_hit
+      BreakSE: 
+  - No: 3
+    Name: "\u30E9\u30D3\u30C3\u30C8"
+    Point: 50
+    PoolNum: 12
+    ObjectName: Enemy03
+    EnemySE:
+      SpawnSE: 
+      HitSE: se_enemy_hit
+      BreakSE: 
+  - No: 4
+    Name: "\u30AD\u30CE\u30B3"
+    Point: 100
+    PoolNum: 5
+    ObjectName: Enemy04
+    EnemySE:
+      SpawnSE: 
+      HitSE: se_enemy_hit
+      BreakSE: 

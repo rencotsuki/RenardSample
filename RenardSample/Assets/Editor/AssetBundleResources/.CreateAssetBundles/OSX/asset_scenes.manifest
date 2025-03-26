@@ -1,0 +1,122 @@
+ManifestFileVersion: 0
+CRC: 1893564540
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ea9e61f4323fd9212c06af15a030cc33
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d3901b069adbf77e71f8cf0f52956c2d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: ea9e61f4323fd9212c06af15a030cc33
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4399eeccd6e50f645befe48a2d0ea474, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 20cc0442daa3aba468d721ac64d622fd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 90ea7589c3ed3d94093ebb39d76deff3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 90fb794a295e73545af71bcdb7375791, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 014bd3dc13860184db0c400232762dd6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01cd8742cd5d452479fda8c72187a04a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 919b11df90abd1e4aaf9f75e1a2b3654, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a15e302f5dee33948b082e25559b8d58, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 23c761047787b7d40a8d754e37857d1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 836e42459bde34dfe89245c56dca1d35, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 05acc715f855ced458d76ee6f8ac6c61, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 756301cd32822af4fa95ca4ae66882cc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9578b0c5f09d4774088650e2e71f6036, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 954ec6653b8e9af4ea244b819761980c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 16eac05766c4e044c92767d88e477ebe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d64134ab94353a14884eb200b3e39e8a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0721a9e0e4f66af488de59700e8c07ce, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 87c5608d38e8a5a488122229958d1c38, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 87560e04aa74c7a41acb9c87051c3b02, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 384a2c177b3db429693b4f79d7029e6c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 69c233aedef018b4a8727f1e15dafab7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ea0ad50bf54df20439bc28a44a124061, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9b17bd7e7aac849428943a01e601a20b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac8b6fb5d9cf0944e9e5566449b04bf1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3de3ddbfe09618649804a7b85f65b4fe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cd30055bf6f1d094fbf1473bf3b262dc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: edbb0e01cc7b200478338445ad7ff6f9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fdbd14a360efa60418e209626a876f0a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+- Class: 241
+  Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
+- Class: 245
+  Script: {instanceID: 0}
+- Class: 320
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/01_AssetScenes/SignageScene.unity
+Dependencies:
+- /Users/rencotsuki/Github/RenardSample/RenardSample/Assets/Editor/AssetBundleResources/.CreateAssetBundles/OSX/asset_navigator
+- /Users/rencotsuki/Github/RenardSample/RenardSample/Assets/Editor/AssetBundleResources/.CreateAssetBundles/OSX/asset_timeline

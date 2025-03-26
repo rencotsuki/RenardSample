@@ -1,0 +1,106 @@
+{
+    "CreateTime": "2025-03-26 07:48:58",
+    "CommitHash": "c662d1c8355cdf21e43f09e86e77acf6f8d15b42",
+    "PlatformMaster": {
+        "AssetName": "Android",
+        "AssetSize": 1295,
+        "AssetHash": "",
+        "AssetCRC": 4283763705,
+        "ManifestName": "Android.manifest",
+        "ManifestSize": 932
+    },
+    "_keys": [
+        "asset_bgm",
+        "asset_enemy",
+        "asset_jingle",
+        "asset_navigator",
+        "asset_scenes",
+        "asset_se",
+        "asset_signageui",
+        "asset_timeline",
+        "asset_virtual_field",
+        "asset_voice"
+    ],
+    "_values": [
+        {
+            "AssetName": "asset_bgm",
+            "AssetSize": 3521705,
+            "AssetHash": "d9b7fa60705ee3cf3654fd53ff00653e",
+            "AssetCRC": 3108999670,
+            "ManifestName": "asset_bgm.manifest",
+            "ManifestSize": 713
+        },
+        {
+            "AssetName": "asset_enemy",
+            "AssetSize": 2459594,
+            "AssetHash": "abd196757a6b91ce685b0ad143dd1ed1",
+            "AssetCRC": 3647426608,
+            "ManifestName": "asset_enemy.manifest",
+            "ManifestSize": 15817
+        },
+        {
+            "AssetName": "asset_jingle",
+            "AssetSize": 306702,
+            "AssetHash": "18f2b358b15f935629a1f5a5bbef6345",
+            "AssetCRC": 2332230368,
+            "ManifestName": "asset_jingle.manifest",
+            "ManifestSize": 520
+        },
+        {
+            "AssetName": "asset_navigator",
+            "AssetSize": 13817190,
+            "AssetHash": "c597e35515f1a1e564482a6c2f62344f",
+            "AssetCRC": 1080658541,
+            "ManifestName": "asset_navigator.manifest",
+            "ManifestSize": 9653
+        },
+        {
+            "AssetName": "asset_scenes",
+            "AssetSize": 4821530,
+            "AssetHash": "d04c8ea71570d338654c5c67dd2957a4",
+            "AssetCRC": 1116192779,
+            "ManifestName": "asset_scenes.manifest",
+            "ManifestSize": 4256
+        },
+        {
+            "AssetName": "asset_se",
+            "AssetSize": 75043,
+            "AssetHash": "0c19a8e7c9ff2c42e43eb85a70af924b",
+            "AssetCRC": 417418120,
+            "ManifestName": "asset_se.manifest",
+            "ManifestSize": 648
+        },
+        {
+            "AssetName": "asset_signageui",
+            "AssetSize": 941264,
+            "AssetHash": "f62ebe7967bd7d1b9726e953bbc247aa",
+            "AssetCRC": 3947114741,
+            "ManifestName": "asset_signageui.manifest",
+            "ManifestSize": 1178
+        },
+        {
+            "AssetName": "asset_timeline",
+            "AssetSize": 16382,
+            "AssetHash": "b4a5eaf3513d8b72b2430b191601929c",
+            "AssetCRC": 3964703498,
+            "ManifestName": "asset_timeline.manifest",
+            "ManifestSize": 4384
+        },
+        {
+            "AssetName": "asset_virtual_field",
+            "AssetSize": 4569795,
+            "AssetHash": "9bbacd008e3887a88b9206cb84819ca3",
+            "AssetCRC": 782867723,
+            "ManifestName": "asset_virtual_field.manifest",
+            "ManifestSize": 902
+        },
+        {
+            "AssetName": "asset_voice",
+            "AssetSize": 7600091,
+            "AssetHash": "4dbbb63501b29abcc673dc400c1276c5",
+            "AssetCRC": 2712276400,
+            "ManifestName": "asset_voice.manifest",
+            "ManifestSize": 2739
+        }
+    ]
+}

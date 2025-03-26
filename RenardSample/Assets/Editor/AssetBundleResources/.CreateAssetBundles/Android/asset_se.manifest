@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 417418120
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0c19a8e7c9ff2c42e43eb85a70af924b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0c19a8e7c9ff2c42e43eb85a70af924b
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/04_Sounds/SE/se_enemy_kill.mp3
+- Assets/Editor/AssetBundleResources/04_Sounds/SE/se_enemy_hit.mp3
+- Assets/Editor/AssetBundleResources/04_Sounds/SE/se_player_attack_shot.mp3
+Dependencies: []

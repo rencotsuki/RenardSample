@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: game_player
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 3995ab1f38be47a468b1dbf7b8118e89, type: 3}
+    - {fileID: 2800000, guid: a2705bbf1d42ef24d96a16dc4b9b9394, type: 3}
+    - {fileID: 2800000, guid: 1aecb78f3dbaa954e964487baa7fb939, type: 3}
+    - {fileID: 2800000, guid: 8062bfe92ee9fa44da6bc05ef5e731a4, type: 3}
+    - {fileID: 2800000, guid: ede6aca2fd6ce5947a3163952e4341f7, type: 3}
+    - {fileID: 2800000, guid: 38d65d48cee2b9742863a56e53ae6daf, type: 3}
+    - {fileID: 2800000, guid: bb9ace7b253e3904fa8082631267ebb1, type: 3}
+    - {fileID: 2800000, guid: de6a44fda20b0904281e46e6aafd25b3, type: 3}
+    - {fileID: 2800000, guid: 1d9b756b834161140870259561b95831, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - ede6aca2fd6ce5947a3163952e4341f7: 21300000
+    - 38d65d48cee2b9742863a56e53ae6daf: 21300000
+    - 8062bfe92ee9fa44da6bc05ef5e731a4: 21300000
+    - 1d9b756b834161140870259561b95831: 21300000
+    - bb9ace7b253e3904fa8082631267ebb1: 21300000
+    - de6a44fda20b0904281e46e6aafd25b3: 21300000
+    - 3995ab1f38be47a468b1dbf7b8118e89: 21300000
+    - 1aecb78f3dbaa954e964487baa7fb939: 21300000
+    - a2705bbf1d42ef24d96a16dc4b9b9394: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ede6aca2fd6ce5947a3163952e4341f7, type: 3}
+  - {fileID: 21300000, guid: 38d65d48cee2b9742863a56e53ae6daf, type: 3}
+  - {fileID: 21300000, guid: 8062bfe92ee9fa44da6bc05ef5e731a4, type: 3}
+  - {fileID: 21300000, guid: 1d9b756b834161140870259561b95831, type: 3}
+  - {fileID: 21300000, guid: bb9ace7b253e3904fa8082631267ebb1, type: 3}
+  - {fileID: 21300000, guid: de6a44fda20b0904281e46e6aafd25b3, type: 3}
+  - {fileID: 21300000, guid: 3995ab1f38be47a468b1dbf7b8118e89, type: 3}
+  - {fileID: 21300000, guid: 1aecb78f3dbaa954e964487baa7fb939, type: 3}
+  - {fileID: 21300000, guid: a2705bbf1d42ef24d96a16dc4b9b9394, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PretsReticleLeftOnColor
+  - PretsReticleRightOff
+  - PretsReticleLeftOn
+  - PretsReticleRughtOnColor
+  - PretsReticleRughtOffColor
+  - PretsReticleRughtOn
+  - game_ui_reticle
+  - PretsReticleLeftOffColor
+  - PretsReticleLeftOff
+  m_RenderDataMap: {}
+  m_Tag: game_player
+  m_IsVariant: 0

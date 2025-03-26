@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: game_result
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 3c3a3eb02daec3d42b031ccc16b23002, type: 3}
+    - {fileID: 2800000, guid: 35cabdc5d08be9146bc881b10338e2a0, type: 3}
+    - {fileID: 2800000, guid: c1ea31970d92b194b946081f11d00f67, type: 3}
+    - {fileID: 2800000, guid: 10fe12b25f8f2a2459e19b50277f0e99, type: 3}
+    - {fileID: 2800000, guid: 3229d3209f8b0fd4a958a4eff7d1ded9, type: 3}
+    - {fileID: 2800000, guid: 8f34cd5da140f2648b9f678fc1708a6f, type: 3}
+    - {fileID: 2800000, guid: af53a5dd08a8225448e9acf15c0f27ea, type: 3}
+    - {fileID: 2800000, guid: 76cc03de5113d6e4d96a8731f080dacc, type: 3}
+    - {fileID: 2800000, guid: a36cc261b899cf742959522eb351fc8f, type: 3}
+    - {fileID: 2800000, guid: faa30807009f339498600c78c79d61e2, type: 3}
+    - {fileID: 2800000, guid: 4525f7f479ec8d64094da053c39feeab, type: 3}
+    - {fileID: 2800000, guid: fd2e2368197bf034585b64958735426b, type: 3}
+    - {fileID: 2800000, guid: 229aafaff0a05a542bf501b45469eb1f, type: 3}
+    - {fileID: 2800000, guid: 199bae41bf7f6bf45a572dd1d181dae4, type: 3}
+    - {fileID: 2800000, guid: 278ffa7eecbb2b84181a32e3803f836d, type: 3}
+    - {fileID: 2800000, guid: a900c8a0450a92f49a2df8a7ff1240e2, type: 3}
+    - {fileID: 2800000, guid: 1a76a44bcacd26d4dab944c6595da472, type: 3}
+    - {fileID: 2800000, guid: f3e26500bed43ff41ab27aa21abe3452, type: 3}
+    - {fileID: 2800000, guid: b0665ae19c1c35a48a7eecd61fabd8dd, type: 3}
+    - {fileID: 2800000, guid: 196cdb73abf958c4b8e6fb8ee93aaaee, type: 3}
+    - {fileID: 2800000, guid: 4a03cfe01ac372c4a8bdd1d9c9daebb6, type: 3}
+    - {fileID: 2800000, guid: 4f0b37a9728d6494cb6f707ef8e8be87, type: 3}
+    - {fileID: 2800000, guid: c094199c7c3c96448bf32e3037516608, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - f3e26500bed43ff41ab27aa21abe3452: 21300000
+    - 3229d3209f8b0fd4a958a4eff7d1ded9: 21300000
+    - a900c8a0450a92f49a2df8a7ff1240e2: 21300000
+    - 3c3a3eb02daec3d42b031ccc16b23002: 21300000
+    - 4a03cfe01ac372c4a8bdd1d9c9daebb6: 21300000
+    - 199bae41bf7f6bf45a572dd1d181dae4: 21300000
+    - a36cc261b899cf742959522eb351fc8f: 21300000
+    - b0665ae19c1c35a48a7eecd61fabd8dd: 21300000
+    - 10fe12b25f8f2a2459e19b50277f0e99: 21300000
+    - 196cdb73abf958c4b8e6fb8ee93aaaee: 21300000
+    - 4525f7f479ec8d64094da053c39feeab: 21300000
+    - 35cabdc5d08be9146bc881b10338e2a0: 21300000
+    - faa30807009f339498600c78c79d61e2: 21300000
+    - c1ea31970d92b194b946081f11d00f67: 21300000
+    - fd2e2368197bf034585b64958735426b: 21300000
+    - 4f0b37a9728d6494cb6f707ef8e8be87: 21300000
+    - 1a76a44bcacd26d4dab944c6595da472: 21300000
+    - c094199c7c3c96448bf32e3037516608: 21300000
+    - 8f34cd5da140f2648b9f678fc1708a6f: 21300000
+    - af53a5dd08a8225448e9acf15c0f27ea: 21300000
+    - 278ffa7eecbb2b84181a32e3803f836d: 21300000
+    - 76cc03de5113d6e4d96a8731f080dacc: 21300000
+    - 229aafaff0a05a542bf501b45469eb1f: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f3e26500bed43ff41ab27aa21abe3452, type: 3}
+  - {fileID: 21300000, guid: 3229d3209f8b0fd4a958a4eff7d1ded9, type: 3}
+  - {fileID: 21300000, guid: a900c8a0450a92f49a2df8a7ff1240e2, type: 3}
+  - {fileID: 21300000, guid: 3c3a3eb02daec3d42b031ccc16b23002, type: 3}
+  - {fileID: 21300000, guid: 4a03cfe01ac372c4a8bdd1d9c9daebb6, type: 3}
+  - {fileID: 21300000, guid: 199bae41bf7f6bf45a572dd1d181dae4, type: 3}
+  - {fileID: 21300000, guid: a36cc261b899cf742959522eb351fc8f, type: 3}
+  - {fileID: 21300000, guid: b0665ae19c1c35a48a7eecd61fabd8dd, type: 3}
+  - {fileID: 21300000, guid: 10fe12b25f8f2a2459e19b50277f0e99, type: 3}
+  - {fileID: 21300000, guid: 196cdb73abf958c4b8e6fb8ee93aaaee, type: 3}
+  - {fileID: 21300000, guid: 4525f7f479ec8d64094da053c39feeab, type: 3}
+  - {fileID: 21300000, guid: 35cabdc5d08be9146bc881b10338e2a0, type: 3}
+  - {fileID: 21300000, guid: faa30807009f339498600c78c79d61e2, type: 3}
+  - {fileID: 21300000, guid: c1ea31970d92b194b946081f11d00f67, type: 3}
+  - {fileID: 21300000, guid: fd2e2368197bf034585b64958735426b, type: 3}
+  - {fileID: 21300000, guid: 4f0b37a9728d6494cb6f707ef8e8be87, type: 3}
+  - {fileID: 21300000, guid: 1a76a44bcacd26d4dab944c6595da472, type: 3}
+  - {fileID: 21300000, guid: c094199c7c3c96448bf32e3037516608, type: 3}
+  - {fileID: 21300000, guid: 8f34cd5da140f2648b9f678fc1708a6f, type: 3}
+  - {fileID: 21300000, guid: af53a5dd08a8225448e9acf15c0f27ea, type: 3}
+  - {fileID: 21300000, guid: 278ffa7eecbb2b84181a32e3803f836d, type: 3}
+  - {fileID: 21300000, guid: 76cc03de5113d6e4d96a8731f080dacc, type: 3}
+  - {fileID: 21300000, guid: 229aafaff0a05a542bf501b45469eb1f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PartsResuitpointText7
+  - PartsResuitBadgeC
+  - PartsResuitpointText5
+  - PartsResuitAddpointTextPlus
+  - PartsResultBase
+  - PartsResuitpointText3
+  - PartsResuitCommentC
+  - PartsResuitpointText8
+  - PartsResuitBadgeB
+  - PartsResuitpointText9
+  - PartsResuitpointText0
+  - PartsResuitAddpointTextPlusPts
+  - PartsResuitCommentS
+  - PartsResuitBadgeA
+  - PartsResuitpointText1
+  - PartsResultKinoko
+  - PartsResuitpointText6
+  - PartsResultTitleText
+  - PartsResuitBadgeS
+  - PartsResuitCommentA
+  - PartsResuitpointText4
+  - PartsResuitCommentB
+  - PartsResuitpointText2
+  m_RenderDataMap: {}
+  m_Tag: game_result
+  m_IsVariant: 0

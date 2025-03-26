@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: game_combo
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 93eb0a4249afada4c83399ea4a88e043, type: 3}
+    - {fileID: 2800000, guid: 462d82d671276054293532129692c059, type: 3}
+    - {fileID: 2800000, guid: e67793f2c308bc546a7233c52e34ace1, type: 3}
+    - {fileID: 2800000, guid: 09e94d7d793c7c349b40e8411ff49ee1, type: 3}
+    - {fileID: 2800000, guid: af877209063328d41a65e01c397705f6, type: 3}
+    - {fileID: 2800000, guid: a1a601f37197ecd488af5fb91e8910a9, type: 3}
+    - {fileID: 2800000, guid: 1d3cb28bc2d9ae647a76f63078d3904c, type: 3}
+    - {fileID: 2800000, guid: 67758b2f0617e024485f6df15e4a1cfa, type: 3}
+    - {fileID: 2800000, guid: 9defeac94d04bb8449a446998d3a4e4b, type: 3}
+    - {fileID: 2800000, guid: 180097fb7edfbab459b7aa655ae382f1, type: 3}
+    - {fileID: 2800000, guid: cc8baa82020cf5c4c90c1801bbbb59be, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 93eb0a4249afada4c83399ea4a88e043: 21300000
+    - cc8baa82020cf5c4c90c1801bbbb59be: 21300000
+    - e67793f2c308bc546a7233c52e34ace1: 21300000
+    - a1a601f37197ecd488af5fb91e8910a9: 21300000
+    - 462d82d671276054293532129692c059: 21300000
+    - af877209063328d41a65e01c397705f6: 21300000
+    - 9defeac94d04bb8449a446998d3a4e4b: 21300000
+    - 1d3cb28bc2d9ae647a76f63078d3904c: 21300000
+    - 180097fb7edfbab459b7aa655ae382f1: 21300000
+    - 09e94d7d793c7c349b40e8411ff49ee1: 21300000
+    - 67758b2f0617e024485f6df15e4a1cfa: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 93eb0a4249afada4c83399ea4a88e043, type: 3}
+  - {fileID: 21300000, guid: cc8baa82020cf5c4c90c1801bbbb59be, type: 3}
+  - {fileID: 21300000, guid: e67793f2c308bc546a7233c52e34ace1, type: 3}
+  - {fileID: 21300000, guid: a1a601f37197ecd488af5fb91e8910a9, type: 3}
+  - {fileID: 21300000, guid: 462d82d671276054293532129692c059, type: 3}
+  - {fileID: 21300000, guid: af877209063328d41a65e01c397705f6, type: 3}
+  - {fileID: 21300000, guid: 9defeac94d04bb8449a446998d3a4e4b, type: 3}
+  - {fileID: 21300000, guid: 1d3cb28bc2d9ae647a76f63078d3904c, type: 3}
+  - {fileID: 21300000, guid: 180097fb7edfbab459b7aa655ae382f1, type: 3}
+  - {fileID: 21300000, guid: 09e94d7d793c7c349b40e8411ff49ee1, type: 3}
+  - {fileID: 21300000, guid: 67758b2f0617e024485f6df15e4a1cfa, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PartsCombo0
+  - PartsComboUnit
+  - PartsCombo2
+  - PartsCombo5
+  - PartsCombo1
+  - PartsCombo4
+  - PartsCombo8
+  - PartsCombo6
+  - PartsCombo9
+  - PartsCombo3
+  - PartsCombo7
+  m_RenderDataMap: {}
+  m_Tag: game_combo
+  m_IsVariant: 0

@@ -1,0 +1,106 @@
+{
+    "CreateTime": "2025-03-26 08:19:39",
+    "CommitHash": "3ce38aeb501f78cc4f1b3d499b9bd5c875c91ba5",
+    "PlatformMaster": {
+        "AssetName": "iOS",
+        "AssetSize": 1298,
+        "AssetHash": "",
+        "AssetCRC": 4067745779,
+        "ManifestName": "iOS.manifest",
+        "ManifestSize": 932
+    },
+    "_keys": [
+        "asset_bgm",
+        "asset_enemy",
+        "asset_jingle",
+        "asset_navigator",
+        "asset_scenes",
+        "asset_se",
+        "asset_signageui",
+        "asset_timeline",
+        "asset_virtual_field",
+        "asset_voice"
+    ],
+    "_values": [
+        {
+            "AssetName": "asset_bgm",
+            "AssetSize": 3521846,
+            "AssetHash": "cd0cf85348e374630786681edf755efc",
+            "AssetCRC": 3520104223,
+            "ManifestName": "asset_bgm.manifest",
+            "ManifestSize": 713
+        },
+        {
+            "AssetName": "asset_enemy",
+            "AssetSize": 2382713,
+            "AssetHash": "03cf2d385ec706c6dc852c5bdd983bec",
+            "AssetCRC": 215525695,
+            "ManifestName": "asset_enemy.manifest",
+            "ManifestSize": 15816
+        },
+        {
+            "AssetName": "asset_jingle",
+            "AssetSize": 306786,
+            "AssetHash": "6bfcd0dfd4c94a8e7c458a02e42bdf69",
+            "AssetCRC": 1818099174,
+            "ManifestName": "asset_jingle.manifest",
+            "ManifestSize": 520
+        },
+        {
+            "AssetName": "asset_navigator",
+            "AssetSize": 12705060,
+            "AssetHash": "e7518f9aca3242c7142f306cd308e7f3",
+            "AssetCRC": 3068792865,
+            "ManifestName": "asset_navigator.manifest",
+            "ManifestSize": 9653
+        },
+        {
+            "AssetName": "asset_scenes",
+            "AssetSize": 4815731,
+            "AssetHash": "c5e77ec6f0689e4bdf27b019bc191b69",
+            "AssetCRC": 701865453,
+            "ManifestName": "asset_scenes.manifest",
+            "ManifestSize": 4257
+        },
+        {
+            "AssetName": "asset_se",
+            "AssetSize": 75038,
+            "AssetHash": "7c780e28d84a0a491564a5932f92c865",
+            "AssetCRC": 2184541740,
+            "ManifestName": "asset_se.manifest",
+            "ManifestSize": 649
+        },
+        {
+            "AssetName": "asset_signageui",
+            "AssetSize": 940681,
+            "AssetHash": "eeebb98d9366f857e3ffa9943debb183",
+            "AssetCRC": 1187111425,
+            "ManifestName": "asset_signageui.manifest",
+            "ManifestSize": 1178
+        },
+        {
+            "AssetName": "asset_timeline",
+            "AssetSize": 16368,
+            "AssetHash": "a7d6035491d78906df509639ffb28aa5",
+            "AssetCRC": 593344015,
+            "ManifestName": "asset_timeline.manifest",
+            "ManifestSize": 4438
+        },
+        {
+            "AssetName": "asset_virtual_field",
+            "AssetSize": 4569789,
+            "AssetHash": "cb328f2b8bcf91da260e380fec9eb436",
+            "AssetCRC": 767558511,
+            "ManifestName": "asset_virtual_field.manifest",
+            "ManifestSize": 902
+        },
+        {
+            "AssetName": "asset_voice",
+            "AssetSize": 7600237,
+            "AssetHash": "81a324ff50bab2962f3e0bfc9ce14b8e",
+            "AssetCRC": 2398608143,
+            "ManifestName": "asset_voice.manifest",
+            "ManifestSize": 2739
+        }
+    ]
+}

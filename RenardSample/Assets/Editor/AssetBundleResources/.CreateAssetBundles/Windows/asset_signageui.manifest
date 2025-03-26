@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 3026860482
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: febdccdcf597e81c7b6b56ee94acfd01
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b90360021f95c293bf3f1bef88434a62
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: febdccdcf597e81c7b6b56ee94acfd01
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/tutorial04.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/tutorial02.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/PartsCharaNameText01.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/tutorial01.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/tutorial03.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/PartsCharaNameRole.png
+- Assets/Editor/AssetBundleResources/05_SignageUI/Materials/InformationImage.mat
+- Assets/Editor/AssetBundleResources/05_SignageUI/Textures/PartsCharaNameBase.png
+Dependencies: []

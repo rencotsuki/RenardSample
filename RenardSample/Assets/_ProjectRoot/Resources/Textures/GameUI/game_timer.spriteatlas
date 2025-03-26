@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: game_timer
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 9403a2a06b0d7ff4893f886af05d5ca4, type: 3}
+    - {fileID: 2800000, guid: 67cb149a4f5813f49a1f932072561846, type: 3}
+    - {fileID: 2800000, guid: 2aa9dd4b4a43fec4ebc3bfe11688c330, type: 3}
+    - {fileID: 2800000, guid: daff8be67ccbfc64bbb9b7b22159cf2f, type: 3}
+    - {fileID: 2800000, guid: 4c846103d764f7f488f2810ade6d3fb1, type: 3}
+    - {fileID: 2800000, guid: 27fb3f2d95225a14d8cbc66483dfd015, type: 3}
+    - {fileID: 2800000, guid: b468330f827539f4d9f1dd799b9dd4ba, type: 3}
+    - {fileID: 2800000, guid: ffbf0db0ba10663478dad3572a08e250, type: 3}
+    - {fileID: 2800000, guid: ca285c9900fd2874aaea16acb7358f8a, type: 3}
+    - {fileID: 2800000, guid: f36814a80d341684b827d58bfd58a9b3, type: 3}
+    - {fileID: 2800000, guid: acdd6d0d3c0e3554f9e2f9d70d147f9e, type: 3}
+    - {fileID: 2800000, guid: 2b1396d6b80e5794887b1ec78e0e593d, type: 3}
+    - {fileID: 2800000, guid: 4a58117f9c98f434c8b1b7012634eb87, type: 3}
+    - {fileID: 2800000, guid: b0ef6e92bc681144d9566baaf3a05e47, type: 3}
+    - {fileID: 2800000, guid: bba78936b04ad9348ac6bbe0eebc0a32, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 9403a2a06b0d7ff4893f886af05d5ca4: 21300000
+    - ffbf0db0ba10663478dad3572a08e250: 21300000
+    - b0ef6e92bc681144d9566baaf3a05e47: 21300000
+    - 4c846103d764f7f488f2810ade6d3fb1: 21300000
+    - bba78936b04ad9348ac6bbe0eebc0a32: 21300000
+    - 2b1396d6b80e5794887b1ec78e0e593d: 21300000
+    - daff8be67ccbfc64bbb9b7b22159cf2f: 21300000
+    - f36814a80d341684b827d58bfd58a9b3: 21300000
+    - ca285c9900fd2874aaea16acb7358f8a: 21300000
+    - 67cb149a4f5813f49a1f932072561846: 21300000
+    - 2aa9dd4b4a43fec4ebc3bfe11688c330: 21300000
+    - acdd6d0d3c0e3554f9e2f9d70d147f9e: 21300000
+    - 27fb3f2d95225a14d8cbc66483dfd015: 21300000
+    - b468330f827539f4d9f1dd799b9dd4ba: 21300000
+    - 4a58117f9c98f434c8b1b7012634eb87: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 9403a2a06b0d7ff4893f886af05d5ca4, type: 3}
+  - {fileID: 21300000, guid: ffbf0db0ba10663478dad3572a08e250, type: 3}
+  - {fileID: 21300000, guid: b0ef6e92bc681144d9566baaf3a05e47, type: 3}
+  - {fileID: 21300000, guid: 4c846103d764f7f488f2810ade6d3fb1, type: 3}
+  - {fileID: 21300000, guid: bba78936b04ad9348ac6bbe0eebc0a32, type: 3}
+  - {fileID: 21300000, guid: 2b1396d6b80e5794887b1ec78e0e593d, type: 3}
+  - {fileID: 21300000, guid: daff8be67ccbfc64bbb9b7b22159cf2f, type: 3}
+  - {fileID: 21300000, guid: f36814a80d341684b827d58bfd58a9b3, type: 3}
+  - {fileID: 21300000, guid: ca285c9900fd2874aaea16acb7358f8a, type: 3}
+  - {fileID: 21300000, guid: 67cb149a4f5813f49a1f932072561846, type: 3}
+  - {fileID: 21300000, guid: 2aa9dd4b4a43fec4ebc3bfe11688c330, type: 3}
+  - {fileID: 21300000, guid: acdd6d0d3c0e3554f9e2f9d70d147f9e, type: 3}
+  - {fileID: 21300000, guid: 27fb3f2d95225a14d8cbc66483dfd015, type: 3}
+  - {fileID: 21300000, guid: b468330f827539f4d9f1dd799b9dd4ba, type: 3}
+  - {fileID: 21300000, guid: 4a58117f9c98f434c8b1b7012634eb87, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PartsTimer0
+  - PartsTimer7
+  - PartsTimerBase_Resize
+  - PartsTimer4
+  - PartsTimerFrame
+  - PartsTimerBar
+  - PartsTimer3
+  - PartsTimer9
+  - PartsTimer8
+  - PartsTimer1
+  - PartsTimer2
+  - PartsTimer_
+  - PartsTimer5
+  - PartsTimer6
+  - PartsTimerBarMask_Resize
+  m_RenderDataMap: {}
+  m_Tag: game_timer
+  m_IsVariant: 0

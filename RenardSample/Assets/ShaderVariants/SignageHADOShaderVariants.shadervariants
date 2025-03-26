@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SignageHADOShaderVariants
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 7d9a2fd3b70ebc749a30d0debc05767a, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: a636172393d87c14eab375f81e410e8b, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: d3e18532e6f11b34fa8b7de553721f0a, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: b29a52da140c3a142b5f548cfa72a727, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: 98defacc6e2cb784eb21d7b6410eac66, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: 11c0e83b17b31f34b80935082a6c0778, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: 75c7127917e2aa245b760838d9a47cdf, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: bc7717c6323cc974f837c698fc6fd43e, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+  - first: {fileID: 4800000, guid: 3bcebf1ed28679541a619ef29ba021c7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0

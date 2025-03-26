@@ -1,0 +1,260 @@
+ManifestFileVersion: 0
+CRC: 1608917745
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 068573a29ca415545d33050dcb8ecfe7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5c1aaeabe4f14ddd1ee8b9f4b2f7246e
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 068573a29ca415545d33050dcb8ecfe7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 920aeba71c9955d488413a46e8fc7fb9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b4a076e7f38d60c4fa69a72337c70450, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f5a12bae1b76ac146be482b2660f5970, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0ad1d660ae4a48746b9b5d208df0f0cf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fec7ec3d80f92144c8ee1ee040611b5a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bfc1c45ace05d69438082cf013a997dd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 1818360608
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: SignageHADO.Game.EmenyAction
+- AssemblyName: Assembly-CSharp
+  ClassName: SignageHADO.Game.EnemyData
+- AssemblyName: Assembly-CSharp
+  ClassName: SignageHADO.Game.EnemySE
+- AssemblyName: Assembly-CSharp
+  ClassName: SignageHADO.Game.EnemyScoreBonus
+- AssemblyName: Assembly-CSharp
+  ClassName: SignageHADO.Game.EnemyScoreRank
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.MarkerList
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.TimelineAsset/EditorSettings
+- AssemblyName: Unity.Timeline
+  ClassName: UnityEngine.Timeline.TimelineClip
+Assets:
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLArmPalm.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigREar01.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@CastSpell 1.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Controller/Forest
+  Bunny Controller.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigTail2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Textures/EvilMushroom-Purple.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Materials/Forest
+  BunnyWF.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRLeg1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigMouth.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLArmDigit12.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigTail3.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/Forest
+  Bat-Red.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRArm2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Controller/ForestBunnyControllerCustom.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-TailFX-Blue.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRArmDigit11.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/Forest
+  Bat-Green.tga
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Controller/EvilMushroomControllerCustom.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-Soundwave-Red.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@Idle.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@die.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/CastSpellCustom.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/Enemy01.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/bodyAttackBat.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigHead.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/Timeline/Enemyline1.playable
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Evil
+  Mushroom.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@hop.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLLegAnkle.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLArm2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Textures/Poison
+  Breath.tif
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@attack.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Textures/EvilMushroom-Green.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Textures/Forest-Bunny-Yellow.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Prefabs/ForestBunnyCustom.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-Soundwave-Green.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/flyforwardCustom.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@attacksoundwave.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Read me.txt
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Textures/EvilMushroom-Blue.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigLEar01.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/Forest
+  Bat-Blue.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigHead.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Prefabs/ForestBunnyGrey.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Textures/Forest-Bunny-Grey.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigLArm2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLArm1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigLEar02.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLArmDigit11.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/VFX-Soundwave.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@idle.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Controller/Forest
+  Bat ControllerCustom.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-TailFX-Red.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Materials/Forest-Bunny-Yellow.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigREar02.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/Forest
+  Bat-Yellow.tga
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@Run.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Materials/EvilMushroom-Blue.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Materials/Poison
+  Breath.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigSpine2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Textures/EvilMushroom-Red.png
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/Enemy04.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Forest Bat.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRArm1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@TakeDamage.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Materials/EvilMushroom-Purple.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigRArm1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/Forest
+  Bat-Green.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Forest
+  Bunny.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRLegAnkle.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/EnemyConfig.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigLEar03.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/VFX-TailFX.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/BodyAttackBunny.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/Forest-Bat-gold.png
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@flyforward.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigPelvis.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Prefabs/EvilMushroomCustom.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-Soundwave-Yellow.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/Enemy03.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Controller/Forest
+  Bat Controller.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigPelvis.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRArmDigit12.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Prefabs/ForestBatCustom.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigNose.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Materials/Forest-Bunny-Black.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Read me.txt
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Textures/Forest-Bunny-Black.jpg
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigRArm2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigSpine1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigTail4.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@Punch.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@Walk.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/Forest
+  Bat-Yellow.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRibcage.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRArmPalm.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigHead.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigREar03.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Prefabs/ForestBat.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigLArm1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigTail5.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Controller/EvilMushroom-Controller.controller
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Materials/Forest-Bunny-Grey.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigPelvis.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Prefabs/EvilMushroom.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@Die.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@idle.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/FBX/Colliders/RigTail1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@attackbite.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/Forest
+  Bat@takedamage.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigRLeg2.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@pre.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@BreathAttack.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Animations/attacksoundwaveCustom.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/Forest
+  Bat-Red.tga
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/Evil
+  Mushroom@CastSpell.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Read me.txt
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@die.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-Soundwave-Blue.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Textures/Forest
+  Bat-Blue.tga
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLLeg1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Materials/EvilMushroom-Green.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/FBX/Colliders/RigTail1.asset
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/Forest
+  Bat-Gold.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/Enemy02.prefab
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Animations/MushroomBodyAttack.anim
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBunnyGrey/Animations/Forest
+  Bunny@takedamage.FBX
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-TailFX-Yellow.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/Materials/EvilMushroom-Red.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestBatBlue/Materials/VFX-TailFX-Green.mat
+- Assets/Editor/AssetBundleResources/03_Objects/Enemy/ForestMushroomBlue/FBX/Colliders/RigLLeg2.asset
+Dependencies: []

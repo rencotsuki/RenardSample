@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 54743534
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 227eaded2b74319a497cf05720468b8c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 227eaded2b74319a497cf05720468b8c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV24.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV14.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV19.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV29.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV30.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Other/CV11.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Demo/CV02.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV15.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV04.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV05.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Demo/CV01.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV32.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV13.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV25.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV20.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Other/CV10.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV21.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Other/CV08.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV07.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Other/CV09.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV16.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV28.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV22.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV26.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV06.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV33.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Other/CV12.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV18.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV27.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Demo/CV03.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Game/CV23.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Information/CV31.wav
+- Assets/Editor/AssetBundleResources/04_Sounds/Voice/Tutorial/CV17.wav
+Dependencies: []
