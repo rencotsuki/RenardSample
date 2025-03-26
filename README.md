@@ -31,7 +31,9 @@ Renardは、元々個人的に何かゲームコンテンツを作ろうと思�
 <img width="180" alt="モニタ画面" src="https://github.com/rencotsuki/RenardSample/blob/11a8b08cebb3a294a4b9f2ef430fcdd392e60be0/DocumentSamples/%E5%A4%96%E9%83%A8%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E5%87%BA%E5%8A%9B%E5%81%B4%E3%81%AE%E7%94%BB%E9%9D%A2.jpg">　<img width="180" alt="動作端末画面" src="https://github.com/rencotsuki/RenardSample/blob/11a8b08cebb3a294a4b9f2ef430fcdd392e60be0/DocumentSamples/%E5%8B%95%E4%BD%9C%E7%AB%AF%E6%9C%AB%E5%81%B4%E3%81%AE%E7%94%BB%E9%9D%A2.jpg">  
 （左：モニタの画面、右：動作端末の画面）  
 
-実際の動作させてプレイしている動画がこちらです。⇒[プレイ動画](https://drive.google.com/file/d/1wbb4lTbfZR02hn_THypDpddlKjyyOrcb/view?usp=drive_link)  
+実際の動作させてプレイしている動画がこちらです。
+⇒[プレイ風景の動画](https://drive.google.com/file/d/1wbb4lTbfZR02hn_THypDpddlKjyyOrcb/view?usp=drive_link)  
+⇒[プレイ画面の動画](https://drive.google.com/file/d/1sl0XN9ofkdylaPNJ0MmVHTIzuo6uTch_/view?usp=drive_link)
 
 ## 補足
 このリポジトリでは、１ファイルが大きい(10MB over)データを取り扱っているため  
