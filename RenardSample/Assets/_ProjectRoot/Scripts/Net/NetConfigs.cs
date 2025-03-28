@@ -6,10 +6,12 @@ using System.Text.RegularExpressions;
 using System.Net;
 using System.Net.NetworkInformation;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace SignageHADO.Net
 {
     using Renard.Debuger;
+    using Ping = System.Net.NetworkInformation.Ping;
 
     public class NetConfigs
     {
@@ -95,7 +97,14 @@ namespace SignageHADO.Net
 
         public static string GetIP(bool linkLocalAddress = false) => GetAddressList(linkLocalAddress).FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)?.ToString();
 
-        public static string GetIPv4(bool linkLocalAddress = false) => GetAddressList(linkLocalAddress).FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)?.ToString();
+        public static string GetIPv4(bool linkLocalAddress = false)
+        {
+            if (!Application.isEditor && Application.platform == RuntimePlatform.Android)
+            {
+                return GetAndroidIPAddress();
+            }
+            return GetAddressList(linkLocalAddress).FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)?.ToString();
+        }
 
         public static string GetNetworkIPv4(string hostIP)
         {
@@ -237,5 +246,32 @@ namespace SignageHADO.Net
                     onCompleted(false, $"CancellationToken. {ex.Message}");
             }
         }
+
+        #region Android
+
+        private static string GetAndroidIPAddress()
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            try
+            {
+                using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                using (var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+                using (var wifiManager = currentActivity.Call<AndroidJavaObject>("getSystemService", "wifi"))
+                {
+                    var wifiInfo = wifiManager.Call<AndroidJavaObject>("getConnectionInfo");
+                    var ipInt = wifiInfo.Call<int>("getIpAddress");
+
+                    return $"{(ipInt & 0xFF)}.{(ipInt >> 8 & 0xFF)}.{(ipInt >> 16 & 0xFF)}.{(ipInt >> 24 & 0xFF)}";
+                }
+            }
+            catch
+            {
+                // 何もしない
+            }
+#endif
+            return string.Empty;
+        }
+
+        #endregion
     }
 }
