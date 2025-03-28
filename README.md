@@ -18,6 +18,17 @@ Renardは、元々個人的に何かゲームコンテンツを作ろうと思�
 バリエーションを増やしていく計画で利用されました。  
 それのモデルベースになるものだったのが「SignageHADO」です。  
 
+## 動作環境について
+実機動作環境は、**iPhoneSE2以降の端末でiOS16以降**をターゲットとして作成しております。  
+
+UnityEditorでは、Windows、Mac(OSX)どちらでも動作確認できます。  
+※PCで動作する際はWebカメラが必要です。  
+
+Androidにおいては、ビルドが出来る状態になってはいますが、
+mediapipeの調整が完了していないため、
+トラッキングによる動作は実機で確認はできない状態にあります。
+申し訳ございません、時間を取って対応はしていくつもりです。
+
 ## 使用方法について
 ビルドしたアプリケーションの使用方法は、  
 サイネージモニタ（物理的に縦置きができるモニタ） と カメラ付き動作端末（iPhoneやWindowsPC＋webカメラ） が必要で、  
@@ -38,6 +49,11 @@ Renardは、元々個人的に何かゲームコンテンツを作ろうと思�
 実際にSignageHADOの業務で私が作成した開発の仕様書も、  
 見せられる範囲のもので一部ですがこちらになります。    
 <img width="100" alt="仕様書①" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_01.png"> <img width="100" alt="仕様書②" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_02.png"> <img width="100" alt="仕様書③" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_03.png"> <img width="100" alt="仕様書④" src="https://github.com/rencotsuki/RenardSample/blob/1ca690d2ef4a621c983476a042d08a7d522de817/DocumentSamples/%5Besa%5DSignageHADO%E4%BB%95%E6%A7%98%E6%9B%B8_04.png">    
+
+※実際動作させて確認するためには、  
+ライセンス発行やAssetBundleの端末へのダウンロードなどの事前準備が必要です。  
+上記の仕様書画像でまとめられている仕様と同じ内容なので、  
+お手数ですが、添付画像の方をご確認の上お試しいただけると幸いです。  
 
 ## 補足
 このリポジトリでは、１ファイルが大きい(10MB over)データを取り扱っているため  
