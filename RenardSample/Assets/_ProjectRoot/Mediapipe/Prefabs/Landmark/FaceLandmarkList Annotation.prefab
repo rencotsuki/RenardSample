@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7273100862690186830}
-  - component: {fileID: 5596602426255898510}
+  - component: {fileID: 6701786755984554221}
   m_Layer: 8
   m_Name: FaceLandmarkList Annotation
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 1007056309493662031}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5596602426255898510
+--- !u!114 &6701786755984554221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273100862690186831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197fd0574724ad4488b24bbd7b23ce2f, type: 3}
+  m_Script: {fileID: 11500000, guid: b2bb2973fa584f941bf4b6b974d966e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _landmarkListAnnotation: {fileID: 2452028741229710435}

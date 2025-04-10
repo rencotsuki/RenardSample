@@ -53,7 +53,8 @@ namespace SignageHADO.Tracking
 {
     public class TrackingManager : SingletonMonoBehaviourCustom<TrackingManager>
     {
-        [SerializeField] private MediapipeSolution mediapipeSolution = null;
+        //[SerializeField] private MediapipeSolution mediapipeSolution = null;
+        [SerializeField] private MediapipeLandmarkerRunner mediapipeSolution = null;
         [SerializeField] private DeviceRotation deviceRotation = null;
         [Header("ﾄﾗｯｷﾝｸﾞﾛｽﾄ判定時間[s]")]
         [SerializeField, Range(0f, 120f)] private float lostTrackingTimeout = 0.5f;

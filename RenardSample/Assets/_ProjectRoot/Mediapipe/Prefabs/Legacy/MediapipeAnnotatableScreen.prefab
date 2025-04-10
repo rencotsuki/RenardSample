@@ -47,14 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4762cd3b607d0eb48a608a510ec0a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _faceLandmarkListAnnotation: {fileID: 8150429519608313056}
+  _faceLandmarkListAnnotation: {fileID: 7040959903198772099}
   _headPosLandmarkIndex: 152
   _leftHandLandmarkListAnnotation: {fileID: 4325061583434669882}
   _rightHandLandmarkListAnnotation: {fileID: 6749352259725856434}
   _handPosLandmarkIndex: 0
   BasiseInterpupillary: 6.3
-  BasiseHandLength: 18
-  LandmarkAnchorOffset: {x: 0, y: -20}
 --- !u!1 &3259285889726014651
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,15 +452,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7273100862690186830, guid: 360c79246304fff4c9094d84838ae1ac, type: 3}
   m_PrefabInstance: {fileID: 4374970193878582126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8150429519608313056 stripped
+--- !u!114 &7040959903198772099 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5596602426255898510, guid: 360c79246304fff4c9094d84838ae1ac, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6701786755984554221, guid: 360c79246304fff4c9094d84838ae1ac, type: 3}
   m_PrefabInstance: {fileID: 4374970193878582126}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197fd0574724ad4488b24bbd7b23ce2f, type: 3}
+  m_Script: {fileID: 11500000, guid: b2bb2973fa584f941bf4b6b974d966e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6563355983179038039
