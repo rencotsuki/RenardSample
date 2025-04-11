@@ -190,6 +190,7 @@ namespace SignageHADO.Tracking
         [HideInInspector] private Quaternion _tmpFaceRot = Quaternion.identity;
         [HideInInspector] private Quaternion _tmpFaceRot2 = Quaternion.identity;
 
+        [HideInInspector] private IReadOnlyList<NormalizedLandmark> _tmpHandLandmarkList = null;
         [HideInInspector] private KalmanFilterVector3 _fingerHandPos = null;
         [HideInInspector] private KalmanFilterFloat _fingerFilter = null;
         [HideInInspector] private TrackingHand _leftHand = new TrackingHand();
@@ -509,9 +510,9 @@ namespace SignageHADO.Tracking
 
             try
             {
-                if (_handLandmarkListAnnotation.IsStale && _handLandmarkListAnnotation.ActiveLeftHandLandmark)
+                if (_handLandmarkListAnnotation.IsStale)
                 {
-                    if (_handLandmarkListAnnotation.GetLeftHandLandmarkPos(out handWorldPos))
+                    if (_handLandmarkListAnnotation.GetLeftHandLandmarkPos(out handWorldPos, out _tmpHandLandmarkList))
                     {
                         if (filterHand)
                         {
@@ -526,10 +527,10 @@ namespace SignageHADO.Tracking
                         {
                             _leftHand.HandWorldPos = handWorldPos;
                         }
-                    }
 
-                    _leftHand.Active = GetHandGesture(_handLandmarkListAnnotation.CurrentLeftHandLandmarkList, ref _leftHand, false);
-                    return _leftHand.Active;
+                        _leftHand.Active = GetHandGesture(_tmpHandLandmarkList, ref _leftHand, false);
+                        return _leftHand.Active;
+                    }
                 }
             }
             catch (Exception ex)
@@ -548,9 +549,9 @@ namespace SignageHADO.Tracking
 
             try
             {
-                if (_handLandmarkListAnnotation.IsStale && _handLandmarkListAnnotation.ActiveRightHandLandmark)
+                if (_handLandmarkListAnnotation.IsStale)
                 {
-                    if (_handLandmarkListAnnotation.GetRightHandLandmarkPos(out handWorldPos))
+                    if (_handLandmarkListAnnotation.GetRightHandLandmarkPos(out handWorldPos, out _tmpHandLandmarkList))
                     {
                         if (filterHand)
                         {
@@ -565,10 +566,10 @@ namespace SignageHADO.Tracking
                         {
                             _rightHand.HandWorldPos = handWorldPos;
                         }
-                    }
 
-                    _rightHand.Active = GetHandGesture(_handLandmarkListAnnotation.CurrentRightHandLandmarkList, ref _rightHand, true);
-                    return _rightHand.Active;
+                        _rightHand.Active = GetHandGesture(_tmpHandLandmarkList, ref _rightHand, true);
+                        return _rightHand.Active;
+                    }
                 }
             }
             catch (Exception ex)

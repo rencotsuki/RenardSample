@@ -181,20 +181,17 @@ namespace SignageHADO.Tracking
             }
         }
 
-        public bool GetLeftHandLandmarkPos(out Vector3 handWorldPos)
-            => GetHandLandmarkPos(ref leftHand, out handWorldPos);
+        private HandLandmarkListAnnotation GetLandmarkListAnnotation(int index)
+            => children.Count > index ? children[index] : null;
 
-        public bool GetRightHandLandmarkPos(out Vector3 handWorldPos)
-            => GetHandLandmarkPos(ref rightHand, out handWorldPos);
-
-        private bool GetHandLandmarkPos(ref HandTracking hand, out Vector3 handWorldPos)
+        private bool GetHandLandmarkPos(HandLandmarkListAnnotation annotation, ref HandTracking hand, out Vector3 handWorldPos)
         {
             handWorldPos = hand.HandWorldPos;
 
             try
             {
-                handWorldPos = this[(int)_handPosLandmarkIndex].transform.position;
-                hand.HandWorldPos = handWorldPos;
+                handWorldPos = annotation[(int)_handPosLandmarkIndex].transform.position;
+                leftHand.HandWorldPos = handWorldPos;
 
                 return true;
             }
@@ -203,5 +200,11 @@ namespace SignageHADO.Tracking
                 return false;
             }
         }
+
+        public bool GetLeftHandLandmarkPos(int index, out Vector3 handWorldPos)
+            => GetHandLandmarkPos(GetLandmarkListAnnotation(index), ref leftHand, out handWorldPos);
+
+        public bool GetRightHandLandmarkPos(int index, out Vector3 handWorldPos)
+            => GetHandLandmarkPos(GetLandmarkListAnnotation(index), ref rightHand, out handWorldPos);
     }
 }
