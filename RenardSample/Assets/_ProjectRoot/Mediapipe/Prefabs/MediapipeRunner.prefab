@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   annotation: {fileID: 5007248474125839515}
   _visualizeZ: 1
+  _handPosLandmarkIndex: 0
   IsDebugLog: 0
 --- !u!114 &9067464709524467993
 MonoBehaviour:
@@ -408,7 +409,7 @@ GameObject:
   - component: {fileID: 7517264722422951063}
   - component: {fileID: 3757375451423489126}
   m_Layer: 8
-  m_Name: SolutionRunner
+  m_Name: MediapipeRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,8 +448,12 @@ MonoBehaviour:
   _bootstrapPrefab: {fileID: 968918444066301895, guid: 9bcfceac08063044b9d744fc651485dd, type: 3}
   screen: {fileID: 4466046774515425041}
   runningMode: 0
+  _viewCamera: {fileID: 0}
+  _canvasTrackingView: {fileID: 4081366251508188018}
   _worldAnnotationArea: {fileID: 4676842226443252078}
+  _isMirrored: 0
   _faceLandmarkListAnnotation: {fileID: 8536955195016838793}
+  _reverseTracking: 0
   _handLandmarkListAnnotation: {fileID: 2301236801774280154}
   _enabledDetection: 1
   _detectionAnnotation: {fileID: 9067464709524467993}
@@ -468,6 +473,20 @@ MonoBehaviour:
   processNoiseFinger: 0.0001
   measurementNoiseFinger: 0.01
   noiseMaxRangeFinger: 1.5
+  config:
+    RunningMode: 2
+    NumFaces: 1
+    MinFaceDetectionConfidence: 0.5
+    MinFacePresenceConfidence: 0.5
+    OutputFaceBlendshapes: 1
+    FaceModel: 0
+    NumHands: 2
+    MinHandDetectionConfidence: 0.5
+    MinHandPresenceConfidence: 0.5
+    MinTrackingConfidence: 0.5
+    ObjectModel: 6
+    MaxResults: -1
+    ScoreThreshold: 0.5
   detectionTargetCategory:
   - person
   basiseInterpupillary: 6.3

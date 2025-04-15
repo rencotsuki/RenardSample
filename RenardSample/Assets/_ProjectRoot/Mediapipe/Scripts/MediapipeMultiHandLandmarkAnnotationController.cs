@@ -14,7 +14,7 @@ using Renard.Debuger;
 
 namespace SignageHADO.Tracking
 {
-    using Hand = HandLandmarkListAnnotation.Hand;
+    using Hand = MediapipeLandmark.Hand;
 
 #pragma warning disable IDE0065
     using Color = UnityEngine.Color;
@@ -23,10 +23,23 @@ namespace SignageHADO.Tracking
     public class MediapipeMultiHandLandmarkAnnotationController : AnnotationController<MediapipeMultiHandLandmarkListAnnotation>
     {
         [SerializeField] private bool _visualizeZ = false;
+        [SerializeField] private Hand _handPosLandmarkIndex = Hand.Wrist;
 
         private HandLandmarkerResult _currentTarget = default;
 
         public bool IsStale => annotation != null ? annotation.isActive : false;
+
+        [Serializable]
+        private struct HandTracking
+        {
+            public string CategoryName;
+            public int Index;
+            public Vector3 HandWorldPos;
+            public IReadOnlyList<NormalizedLandmark> List;
+        }
+
+        private HandTracking leftHand = new HandTracking();
+        private HandTracking rightHand = new HandTracking();
 
         [HideInInspector] private int _index = 0;
 
@@ -67,6 +80,22 @@ namespace SignageHADO.Tracking
                 isStale = false;
                 annotation?.SetHandedness(_currentTarget.handedness);
                 annotation?.Draw(_currentTarget.handLandmarks, _visualizeZ);
+
+                // カメラ画像を判定するので実手と向きが反転することに注意！
+
+                leftHand.CategoryName = isMirrored ? "Left" : "Right";
+                rightHand.CategoryName = isMirrored ? "Right" : "Left";
+                leftHand.Index = -1;
+                rightHand.Index = -1;
+
+                for (_index = 0; _index < _currentTarget.handedness.Count; _index++)
+                {
+                    if (_currentTarget.handedness[_index].categories[0].categoryName == leftHand.CategoryName)
+                        leftHand.Index = _index;
+
+                    if (_currentTarget.handedness[_index].categories[0].categoryName == rightHand.CategoryName)
+                        rightHand.Index = _index;
+                }
             }
             catch (Exception ex)
             {
@@ -74,71 +103,48 @@ namespace SignageHADO.Tracking
             }
         }
 
-        private string GetCategoryName(Hand hand)
+        private bool GetHandLandmarkList(ref HandTracking hand, out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> list)
         {
-            if (hand == Hand.Left) return "Left";
-            if (hand == Hand.Right) return "Right";
-            return string.Empty;
-        }
-
-        private bool GetHandWorldPos(Hand hand, int index, out Vector3 handWorldPos)
-        {
-            handWorldPos = Vector3.zero;
-
-            if (annotation != null)
-            {
-                if (hand == Hand.Left)
-                    return annotation.GetLeftHandLandmarkPos(index, out handWorldPos);
-
-                if (hand == Hand.Right)
-                    return annotation.GetRightHandLandmarkPos(index, out handWorldPos);
-            }
-            return false;
-        }
-
-        private bool GetHandLandmarkList(Hand hand, out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> list)
-        {
-            handWorldPos = Vector3.zero;
-            list = null;
+            handWorldPos = hand.HandWorldPos;
+            list = hand.List;
 
             try
             {
-                for (_index = 0; _index < _currentTarget.handedness.Count; _index++)
+                if (hand.Index >= 0)
                 {
-                    if (_currentTarget.handedness[_index].categories[0].categoryName == GetCategoryName(hand))
+                    if (annotation.GetHandLandmarkPos(hand.Index, (int)_handPosLandmarkIndex, out handWorldPos))
+                        hand.HandWorldPos = handWorldPos;
+
+                    if (_currentTarget.handLandmarks.Count > hand.Index)
                     {
-                        if (_currentTarget.handLandmarks.Count > _index)
-                        {
-                            if (GetHandWorldPos(hand, _index, out handWorldPos))
-                            {
-                                list = _currentTarget.handLandmarks[_index].landmarks;
-                                return true;
-                            }
-                        }
+                        list = _currentTarget.handLandmarks[hand.Index].landmarks;
+                        hand.List = list;
                     }
+
+                    return true;
                 }
             }
             catch (Exception ex)
             {
-                Log(DebugerLogType.Info, "GetHandLandmarkList", $"[{hand}] - {ex.Message}");
+                Log(DebugerLogType.Info, "GetHandLandmarkList", $"[{hand.Index}] - {ex.Message}");
+                handWorldPos = hand.HandWorldPos;
+                list = hand.List;
             }
             return false;
         }
 
-        public bool GetLeftHandLandmarkPos(out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> landmarkList)
+        public bool GetLeftHandLandmarkPos(bool reverse, out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> landmarkList)
         {
-            // ミラー設定で逆になるのに注意！
-            return isMirrored ?
-                GetHandLandmarkList(Hand.Left, out handWorldPos, out landmarkList) :
-                GetHandLandmarkList(Hand.Right, out handWorldPos, out landmarkList);
+            return reverse ?
+                GetHandLandmarkList(ref rightHand, out handWorldPos, out landmarkList) :
+                GetHandLandmarkList(ref leftHand, out handWorldPos, out landmarkList);
         }
 
-        public bool GetRightHandLandmarkPos(out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> landmarkList)
+        public bool GetRightHandLandmarkPos(bool reverse, out Vector3 handWorldPos, out IReadOnlyList<NormalizedLandmark> landmarkList)
         {
-            // ミラー設定で逆になるのに注意！
-            return isMirrored ?
-                GetHandLandmarkList(Hand.Right, out handWorldPos, out landmarkList) :
-                GetHandLandmarkList(Hand.Left, out handWorldPos, out landmarkList);
+            return reverse ?
+                 GetHandLandmarkList(ref leftHand, out handWorldPos, out landmarkList) :
+                 GetHandLandmarkList(ref rightHand, out handWorldPos, out landmarkList);
         }
     }
 }

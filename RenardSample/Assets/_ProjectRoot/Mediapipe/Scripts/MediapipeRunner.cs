@@ -23,10 +23,15 @@ namespace SignageHADO.Tracking
 {
     using Hand = MediapipeLandmark.Hand;
 
-    public class MediapipeLandmarkerRunner : MediapipeVisionTaskApiRunner
+    public class MediapipeRunner : MediapipeVisionTaskApiRunner
     {
+        [Header("表示カメラ　※空はCamera.mainを設定する")]
+        [SerializeField] private Camera _viewCamera = null;
+        [SerializeField] private Canvas _canvasTrackingView = null;
         [SerializeField] private RectTransform _worldAnnotationArea = null;
+        [SerializeField] private bool _isMirrored = false;
         [SerializeField] private MediapipeMultiFaceLandmarkAnnotationController _faceLandmarkListAnnotation = null;
+        [SerializeField] private bool _reverseTracking = false;
         [SerializeField] private MediapipeMultiHandLandmarkAnnotationController _handLandmarkListAnnotation = null;
         [SerializeField] private bool _enabledDetection = true;
         [SerializeField] private MediapipeDetectionResultAnnotationController _detectionAnnotation = null;
@@ -61,23 +66,22 @@ namespace SignageHADO.Tracking
 
         private TextureFramePool _textureFramePool = null;
 
-        private bool _isMirrored = false;
-        public bool IsMirrored
+        public Camera ViewCamera
+        {
+            get => _viewCamera != null ? _viewCamera : Camera.main;
+            set => _viewCamera = value;
+        }
+
+        public bool IsMirrored 
         {
             get => _isMirrored;
-            set
-            {
-                _isMirrored = value;
+            set => _isMirrored = value;
+        }
 
-                if (_faceLandmarkListAnnotation != null)
-                    _faceLandmarkListAnnotation.isMirrored = _isMirrored;
-
-                if (_handLandmarkListAnnotation != null)
-                    _handLandmarkListAnnotation.isMirrored = _isMirrored;
-
-                if (_detectionAnnotation != null)
-                    _detectionAnnotation.isMirrored = _isMirrored;
-            }
+        public bool ReverseTracking
+        {
+            get => _reverseTracking;
+            set => _reverseTracking = value;
         }
 
         public bool EnabledDetection
@@ -199,11 +203,15 @@ namespace SignageHADO.Tracking
 
         private void Awake()
         {
-            if (_faceLandmarkListAnnotation != null)
+            if (_canvasTrackingView != null)
             {
-                IsMirrored = _faceLandmarkListAnnotation.isMirrored;
-                _faceLandmarkListAnnotation.BasiseInterpupillary = basiseInterpupillary;
+                _canvasTrackingView.renderMode = RenderMode.ScreenSpaceCamera;
+                _canvasTrackingView.worldCamera = ViewCamera;
+                _canvasTrackingView.sortingOrder = -1;
             }
+
+            if (_faceLandmarkListAnnotation != null)
+                _faceLandmarkListAnnotation.BasiseInterpupillary = basiseInterpupillary;
 
             _detectionAnnotation?.SetTargetCategory(detectionTargetCategory);
 
@@ -233,7 +241,8 @@ namespace SignageHADO.Tracking
                 $"MinHandDetectionConfidence = {config.MinHandDetectionConfidence}\n\r" +
                 $"MinHandPresenceConfidence = {config.MinHandPresenceConfidence}\n\r" +
                 $"MinTrackingConfidence = {config.MinTrackingConfidence}\n\r" +
-                $"Max Results = {config.MaxResults}");
+                $"Max Results = {config.MaxResults}\n\r" +
+                $"IsMirrored = {IsMirrored}");
 
             yield return AssetLoader.PrepareAssetAsync(config.FaceModelPath);
             yield return AssetLoader.PrepareAssetAsync(config.HandModelPath);
@@ -263,12 +272,13 @@ namespace SignageHADO.Tracking
             _textureFramePool = new TextureFramePool(imageSource.textureWidth, imageSource.textureHeight, TextureFormat.RGBA32, 10);
 
             screen.Initialize(imageSource);
+            _worldAnnotationArea.localEulerAngles = imageSource.rotation.Reverse().GetEulerAngles();
 
-            SetupAnnotationController(_faceLandmarkListAnnotation, imageSource);
-            SetupAnnotationController(_handLandmarkListAnnotation, imageSource);
-            SetupAnnotationController(_detectionAnnotation, imageSource);
+            SetupAnnotationController(_faceLandmarkListAnnotation, imageSource, IsMirrored);
+            SetupAnnotationController(_handLandmarkListAnnotation, imageSource, IsMirrored);
+            SetupAnnotationController(_detectionAnnotation, imageSource, IsMirrored);
 
-            var transformationOptions = imageSource.GetTransformationOptions();
+            var transformationOptions = imageSource.GetTransformationOptions(IsMirrored);
             var flipHorizontally = transformationOptions.flipHorizontally;
             var flipVertically = transformationOptions.flipVertically;
             var imageProcessingOptions = new Tasks.Vision.Core.ImageProcessingOptions(rotationDegrees: (int)transformationOptions.rotationAngle);
@@ -512,7 +522,7 @@ namespace SignageHADO.Tracking
             {
                 if (_handLandmarkListAnnotation.IsStale)
                 {
-                    if (_handLandmarkListAnnotation.GetLeftHandLandmarkPos(out handWorldPos, out _tmpHandLandmarkList))
+                    if (_handLandmarkListAnnotation.GetLeftHandLandmarkPos(ReverseTracking, out handWorldPos, out _tmpHandLandmarkList))
                     {
                         if (filterHand)
                         {
@@ -551,7 +561,7 @@ namespace SignageHADO.Tracking
             {
                 if (_handLandmarkListAnnotation.IsStale)
                 {
-                    if (_handLandmarkListAnnotation.GetRightHandLandmarkPos(out handWorldPos, out _tmpHandLandmarkList))
+                    if (_handLandmarkListAnnotation.GetRightHandLandmarkPos(ReverseTracking, out handWorldPos, out _tmpHandLandmarkList))
                     {
                         if (filterHand)
                         {

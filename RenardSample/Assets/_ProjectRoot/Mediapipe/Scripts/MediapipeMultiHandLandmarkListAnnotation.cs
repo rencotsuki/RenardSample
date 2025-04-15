@@ -25,18 +25,6 @@ namespace SignageHADO.Tracking
         [SerializeField] private float _landmarkRadius = 15.0f;
         [SerializeField] private Color _connectionColor = Color.white;
         [SerializeField, Range(0, 1)] private float _connectionWidth = 1.0f;
-        [SerializeField] private Hand _handPosLandmarkIndex = Hand.Wrist;
-
-        [Serializable]
-        private struct HandTracking
-        {
-            public Vector3 HandWorldPos;
-            public Vector3 IndexMpcWorldPos;
-            public Vector3 PrinkyMpcWorldPos;
-        }
-
-        private HandTracking leftHand = new HandTracking();
-        private HandTracking rightHand = new HandTracking();
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -181,30 +169,23 @@ namespace SignageHADO.Tracking
             }
         }
 
-        private HandLandmarkListAnnotation GetLandmarkListAnnotation(int index)
-            => children.Count > index ? children[index] : null;
-
-        private bool GetHandLandmarkPos(HandLandmarkListAnnotation annotation, ref HandTracking hand, out Vector3 handWorldPos)
+        public bool GetHandLandmarkPos(int handIndex, int landmarkIndex, out Vector3 handWorldPos)
         {
-            handWorldPos = hand.HandWorldPos;
+            handWorldPos = Vector3.zero;
 
             try
             {
-                handWorldPos = annotation[(int)_handPosLandmarkIndex].transform.position;
-                leftHand.HandWorldPos = handWorldPos;
-
-                return true;
+                if (children.Count > handIndex)
+                {
+                    handWorldPos = children[handIndex][landmarkIndex].transform.position;
+                    return true;
+                }
             }
             catch
             {
-                return false;
+                // 何もしない
             }
+            return false;
         }
-
-        public bool GetLeftHandLandmarkPos(int index, out Vector3 handWorldPos)
-            => GetHandLandmarkPos(GetLandmarkListAnnotation(index), ref leftHand, out handWorldPos);
-
-        public bool GetRightHandLandmarkPos(int index, out Vector3 handWorldPos)
-            => GetHandLandmarkPos(GetLandmarkListAnnotation(index), ref rightHand, out handWorldPos);
     }
 }

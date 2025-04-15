@@ -53,8 +53,7 @@ namespace SignageHADO.Tracking
 {
     public class TrackingManager : SingletonMonoBehaviourCustom<TrackingManager>
     {
-        //[SerializeField] private MediapipeSolution mediapipeSolution = null;
-        [SerializeField] private MediapipeLandmarkerRunner mediapipeSolution = null;
+        [SerializeField] private MediapipeRunner mediapipeRunner = null;
         [SerializeField] private DeviceRotation deviceRotation = null;
         [Header("ﾄﾗｯｷﾝｸﾞﾛｽﾄ判定時間[s]")]
         [SerializeField, Range(0f, 120f)] private float lostTrackingTimeout = 0.5f;
@@ -66,24 +65,21 @@ namespace SignageHADO.Tracking
         [SerializeField] private bool filterHand = true;
         [SerializeField, Range(0f, 1f), Tooltip(EMAFilter.EMAFilterAlphaToolTip)] private float emaFilterAlpha = 0.2f;
 
-        public bool Active => mediapipeSolution != null ? mediapipeSolution.Active : false;
+        public bool Active => mediapipeRunner != null ? mediapipeRunner.Active : false;
 
-        public bool EnabledDetection => mediapipeSolution != null ? mediapipeSolution.EnabledDetection : false;
+        public bool EnabledDetection => mediapipeRunner != null ? mediapipeRunner.EnabledDetection : false;
 
-        protected bool isMobile
+        protected bool reverseTracking
         {
-            get
+            get => mediapipeRunner != null ? mediapipeRunner.ReverseTracking : false;
+            set
             {
-#if !UNITY_EDITOR
-                if (Application.platform == RuntimePlatform.IPhonePlayer ||
-                    Application.platform == RuntimePlatform.Android)
-                {
-                    return true;
-                }
-#endif
-                return false;
+                if (mediapipeRunner != null)
+                    mediapipeRunner.ReverseTracking = value;
             }
         }
+
+        protected bool isMobile { get; private set; } = false;
 
         #region TrackingStatus
 
@@ -148,20 +144,33 @@ namespace SignageHADO.Tracking
 
         public DeviceRotation DeviceRotation => deviceRotation;
 
+        private Vector3 _cameraDeviceEulerAngles = Vector3.zero;
         protected Vector3 cameraDeviceEulerAngles
         {
             get
             {
-                // 今はPitch以外を使わない
                 if (deviceRotation != null)
-                    return isMobile ? new Vector3(deviceRotation.Pitch, 0f, 0f) : deviceRotation.EulerAngles;
+                {
+                    if (isMobile)
+                    {
+                        // モバイル端末はPitch以外を使わない
+                        _cameraDeviceEulerAngles.x = deviceRotation.Pitch;
+                        _cameraDeviceEulerAngles.y = 0f;
+                        _cameraDeviceEulerAngles.z = 0f;
+                    }
+                    else
+                    {
+                        _cameraDeviceEulerAngles = deviceRotation.EulerAngles;
+                    }
+                    return _cameraDeviceEulerAngles;
+                }
                 return Vector3.zero;
             }
         }
 
         protected static Vector2 defaultViewPos => TrackingHandler.DefaultViewPos;
 
-        public int DetectionTargetCount => mediapipeSolution != null ? mediapipeSolution.DetectionTargetCount : 0;
+        public int DetectionTargetCount => mediapipeRunner != null ? mediapipeRunner.DetectionTargetCount : 0;
 
         public Vector3 HeadLocalAngles => _face.HeadAngles;
 
@@ -244,6 +253,13 @@ namespace SignageHADO.Tracking
             base.Initialized();
             IsDebugLog = false;
 
+#if UNITY_EDITOR
+            isMobile = false;
+#else
+            isMobile = (Application.platform == RuntimePlatform.IPhonePlayer ||
+                        Application.platform == RuntimePlatform.Android);
+#endif
+
             _emaFilterHandLeft = new EMAFilterVector2(Vector2.one *  emaFilterAlpha);
             _emaFilterHandRight = new EMAFilterVector2(Vector2.one * emaFilterAlpha);
         }
@@ -269,19 +285,15 @@ namespace SignageHADO.Tracking
 
         private async UniTask OnUpdateAsync(CancellationToken token)
         {
+            // モバイル端末の背面カメラの逆向き対応
+            reverseTracking = isMobile;
+
             ResetTracking();
 
             while (_onUpdateToken != null)
             {
                 if (Active)
                 {
-                    if (isMobile)
-                    {
-                        // モバイル端末の背面カメラは逆になる
-                        if (mediapipeSolution != null && !mediapipeSolution.IsMirrored)
-                            mediapipeSolution.IsMirrored = true;
-                    }
-
                     UpdateAnnotationController();
                 }
 
@@ -303,16 +315,16 @@ namespace SignageHADO.Tracking
 
         private void UpdateAnnotationController()
         {
-            if (mediapipeSolution != null)
+            if (mediapipeRunner != null)
             {
                 headTrackingStatus.Update(lostTrackingTimeout,
-                    () => mediapipeSolution.GetFaceTracking(out _face.OriginWorldPos, out _face.OriginLocalRotation, out _face.HeadScale));
+                    () => mediapipeRunner.GetFaceTracking(out _face.OriginWorldPos, out _face.OriginLocalRotation, out _face.HeadScale));
 
                 leftHandTrackingStatus.Update(lostTrackingTimeout,
-                    () => mediapipeSolution.GetLeftHandGesture(out _leftHand.OriginWorldPos, out _leftHand.Pose));
+                    () => mediapipeRunner.GetLeftHandGesture(out _leftHand.OriginWorldPos, out _leftHand.Pose));
 
                 rightHandTrackingStatus.Update(lostTrackingTimeout,
-                    () => mediapipeSolution.GetRightHandGesture(out _rightHand.OriginWorldPos, out _rightHand.Pose));
+                    () => mediapipeRunner.GetRightHandGesture(out _rightHand.OriginWorldPos, out _rightHand.Pose));
             }
             else
             {
@@ -346,8 +358,8 @@ namespace SignageHADO.Tracking
                 _face.HeadScale = 0f;
             }
 
-            // ミラー設定の反転対応
-            if (isMobile)
+            // モバイル端末の背面カメラの逆向き対応
+            if (reverseTracking)
             {
                 _face.HeadAngles.x = _face.HeadAngles.x * 1.2f;
                 _face.HeadAngles.y = -_face.HeadAngles.y;
@@ -420,8 +432,8 @@ namespace SignageHADO.Tracking
             if (filterHand)
                 _rightHand.ViewPos = _emaFilterHandRight.Apply(_rightHand.ViewPos);
 
-            // ミラー設定の反転対応
-            if (isMobile)
+            // モバイル端末の背面カメラの逆向き対応
+            if (reverseTracking)
             {
                 _leftHand.ViewPos.x = -_leftHand.ViewPos.x;
                 _rightHand.ViewPos.x = -_rightHand.ViewPos.x;
