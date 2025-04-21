@@ -77,7 +77,7 @@ namespace SignageHADO.Tracking
 
         protected MediapipeBootstrap FindBootstrap()
         {
-            var bootstrapObj = GameObject.Find("Bootstrap");
+            var bootstrapObj = GameObject.Find(_BootstrapName);
 
             if (bootstrapObj == null)
             {

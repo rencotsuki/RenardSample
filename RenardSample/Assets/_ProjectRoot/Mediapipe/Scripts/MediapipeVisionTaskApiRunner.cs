@@ -2,7 +2,8 @@
  * Mediapipe - VisionTaskApiRunnerの改修
  */
 
-using System.Collections;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Mediapipe.Unity;
 using Mediapipe.Tasks.Vision.FaceLandmarker;
@@ -17,21 +18,26 @@ namespace SignageHADO.Tracking
 
         public bool Active => init && !isPaused;
 
-        private Coroutine _coroutine = null;
+        protected CancellationTokenSource onRunToken { get; private set; } = null;
         protected FaceLandmarker faceLandmarker = null;
         protected HandLandmarker handLandmarker = null;
         protected ObjectDetector objectDetector = null;
 
         public RunningMode runningMode;
 
+        private void OnDestroy()
+        {
+            OnDisposeRun();
+        }
+
         public override void Play()
         {
-            if (_coroutine != null)
-            {
-                Stop();
-            }
+            OnDisposeRun();
+
             base.Play();
-            _coroutine = StartCoroutine(Run());
+
+            onRunToken = new CancellationTokenSource();
+            Run(onRunToken.Token).Forget();
         }
 
         public override void Pause()
@@ -49,7 +55,7 @@ namespace SignageHADO.Tracking
         public override void Stop()
         {
             base.Stop();
-            StopCoroutine(_coroutine);
+            OnDisposeRun();
             ImageSourceProvider.ImageSource.Stop();
             faceLandmarker?.Close();
             faceLandmarker = null;
@@ -61,7 +67,13 @@ namespace SignageHADO.Tracking
             objectDetector = null;
         }
 
-        protected abstract IEnumerator Run();
+        protected void OnDisposeRun()
+        {
+            onRunToken?.Dispose();
+            onRunToken = null;
+        }
+
+        protected abstract UniTask Run(CancellationToken token);
 
         protected static void SetupAnnotationController<T>(AnnotationController<T> annotationController, ImageSource imageSource, bool expectedToBeMirrored = false) where T : HierarchicalAnnotation
         {
