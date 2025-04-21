@@ -2,6 +2,7 @@
  * Mediapipe - DetectionResultAnnotationControllerの改修
  */
 
+using System;
 using UnityEngine;
 using Mediapipe.Unity;
 using Renard.Debuger;
@@ -47,8 +48,15 @@ namespace SignageHADO.Tracking
 
         protected override void SyncNow()
         {
-            isStale = false;
-            annotation?.Draw(_currentTarget, imageSize, _threshold);
+            try
+            {
+                isStale = false;
+                annotation?.Draw(_currentTarget, imageSize, _threshold);
+            }
+            catch (Exception ex)
+            {
+                Log(DebugerLogType.Info, "SyncNow", $"{ex.Message}");
+            }
         }
     }
 }
