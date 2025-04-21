@@ -38,6 +38,12 @@ public class MainScene : MonoBehaviourCustom
     [SerializeField] private GameObject _manualControl = null;
     [SerializeField] private VariableJoystick _joystick = null;
     [SerializeField] private Button _btnShot = null;
+    [Header("-- ScreenSaver")]
+    [SerializeField] private CanvasGroup _canvasGroupScreenSaver = null;
+    [SerializeField] private Button _btnScreenSaver = null;
+    [SerializeField] private Image _imgScreenSaver = null;
+    [SerializeField] private TMP_InputField _inputScreenSaverTime = null;
+    [SerializeField] private Vector2 _screenSaverSpeed = new Vector2(200f, 150f);
 
     protected const int loadWaitTimeMilliseconds = 3 * 1000;
 
@@ -95,6 +101,22 @@ public class MainScene : MonoBehaviourCustom
         set => _isViewDisplay = value;
     }
 
+    private bool _isViewScreenSaver = false;
+    protected bool isViewScreenSaver
+    {
+        get => _isViewScreenSaver;
+        set
+        {
+            _isViewScreenSaver = value;
+
+            if (_canvasGroupScreenSaver != null)
+            {
+                _canvasGroupScreenSaver.alpha = _isViewScreenSaver ? 1f : 0f;
+                _canvasGroupScreenSaver.blocksRaycasts = _isViewScreenSaver;
+            }
+        }
+    }
+
     private float batteryLevel => BatteryInfo.Level;
 
     private bool activeHeadTracking => TrackingHandler.IsHeadTracking;
@@ -108,6 +130,16 @@ public class MainScene : MonoBehaviourCustom
 
     private StringBuilder strBattery = new StringBuilder();
     private StringBuilder gameLog = new StringBuilder();
+
+    private float screenSaverTime = 0f;
+
+    private float _floatParse = 0f;
+    private float _lastActionTime = 0f;
+    private Vector2 _screenSaverDirection = Vector2.one;
+    private Vector2 _screenSaverMoveAmount = Vector2.zero;
+    private Vector2 _screenSaverPosition = Vector2.zero;
+    private Vector2 _screenSaverMinBounds = Vector2.zero;
+    private Vector2 _screenSaverMaxBounds = Vector2.zero;
 
     private CancellationTokenSource _onUpdateToken = null;
 
@@ -143,6 +175,8 @@ public class MainScene : MonoBehaviourCustom
         if (_debugLastBoot != null)
             _debugLastBoot.text = $"BootTime: {DateTime.FromBinary(long.Parse(ConfigSignageHADO.LastBootTime)).ToString()}";
 
+        _inputScreenSaverTime.onEndEdit.AddListener((value) => OnChangedValueFloat(value, (x) => SetScreenSaverTime(x)));
+
         OnDisposeUpdate();
         _onUpdateToken = new CancellationTokenSource();
         OnUpdateAsync(_onUpdateToken.Token).Forget();
@@ -161,6 +195,8 @@ public class MainScene : MonoBehaviourCustom
 
     private async UniTask OnUpdateAsync(CancellationToken token)
     {
+        SetupScreenSaver();
+
         while (_onUpdateToken != null)
         {
             if (_debugStatus != null && _debugStatus.text != $"{sinageStatus}::{gameStatus}")
@@ -237,9 +273,20 @@ public class MainScene : MonoBehaviourCustom
             if (visibleDebugUI)
                 UpdateGameLog();
 
+            UpdateScreenSaver();
+
             await UniTask.Yield(PlayerLoopTiming.Update, token);
             token.ThrowIfCancellationRequested();
         }
+    }
+
+    private void OnChangedValueFloat(string value, Action<float> changeAction)
+    {
+        if (!float.TryParse(value, out _floatParse))
+            return;
+
+        if (changeAction != null)
+            changeAction(_floatParse);
     }
 
     private void UpdateGameLog()
@@ -285,5 +332,111 @@ public class MainScene : MonoBehaviourCustom
 
         if (_debugGameLog != null && _debugGameLog.text != gameLog.ToString())
             _debugGameLog.text = gameLog.ToString();
+    }
+
+    private void SetupScreenSaver()
+    {
+        if (_imgScreenSaver != null)
+        {
+            _screenSaverMinBounds = -new Vector2(Screen.width, Screen.height) / 2 + _imgScreenSaver.rectTransform.sizeDelta / 2;
+            _screenSaverMaxBounds = new Vector2(Screen.width, Screen.height) / 2 - _imgScreenSaver.rectTransform.sizeDelta / 2;
+
+            _imgScreenSaver.rectTransform.anchoredPosition = Vector2.zero;
+            _screenSaverPosition = _imgScreenSaver.rectTransform.anchoredPosition;
+        }
+
+        screenSaverTime = ConfigSignageHADO.ScreenSaverTime;
+        SetScreenSaverTime(screenSaverTime);
+
+        _lastActionTime = Time.realtimeSinceStartup;
+        isViewScreenSaver = false;
+    }
+
+    private void SetScreenSaverTime(float time)
+    {
+        if (time >= 0)
+        {
+            if (screenSaverTime != time)
+            {
+                screenSaverTime = time;
+                ConfigSignageHADO.ScreenSaverTime = screenSaverTime;
+                ConfigSignageHADO.Save();
+            }
+        }
+
+        if (_inputScreenSaverTime.text != screenSaverTime.ToString())
+            _inputScreenSaverTime.text = screenSaverTime.ToString();
+    }
+
+    private bool IsActionScreenSaver()
+    {
+        if (Application.platform == RuntimePlatform.Android ||
+            Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            // 画面タップされたら
+            if (Input.touchCount > 0)
+                return true;
+        }
+
+        // 何かしらのキーが押されたら
+        if (Input.anyKey || Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            return true;
+
+        return false;
+    }
+
+    private void UpdateScreenSaver()
+    {
+        if (screenSaverTime <= 0)
+            return;
+
+        if (IsActionScreenSaver())
+        {
+            HideScreenSaver(Time.realtimeSinceStartup);
+            return;
+        }
+
+        if (isViewScreenSaver)
+        {
+            DrawScreenSaver(Time.deltaTime);
+        }
+        else if (Time.realtimeSinceStartup - _lastActionTime > screenSaverTime)
+        {
+            isViewScreenSaver = true;
+
+            // 移動開始方向をランダムにする
+            _screenSaverDirection = new Vector2(UnityEngine.Random.Range(0, 100) > 50 ? 1f : -1f, UnityEngine.Random.Range(0, 100) > 50 ? 1f : -1f);
+        }
+    }
+
+    private void HideScreenSaver(float realtimeSinceStartup)
+    {
+        _lastActionTime = realtimeSinceStartup;
+
+        if (isViewScreenSaver)
+            isViewScreenSaver = false;
+    }
+
+    private void DrawScreenSaver(float deltaTime)
+    {
+        if (_imgScreenSaver == null)
+            return;
+
+        _screenSaverMoveAmount = _screenSaverSpeed * _screenSaverDirection * deltaTime;
+        _screenSaverPosition += _screenSaverMoveAmount;
+
+        if (_screenSaverPosition.x <= _screenSaverMinBounds.x || _screenSaverPosition.x >= _screenSaverMaxBounds.x)
+        {
+            _screenSaverDirection.x *= -1;
+            _screenSaverPosition.x = Mathf.Clamp(_screenSaverPosition.x, _screenSaverMinBounds.x, _screenSaverMaxBounds.x);
+        }
+
+        if (_screenSaverPosition.y <= _screenSaverMinBounds.y || _screenSaverPosition.y >= _screenSaverMaxBounds.y)
+        {
+            _screenSaverDirection.y *= -1;
+            _screenSaverPosition.y = Mathf.Clamp(_screenSaverPosition.y, _screenSaverMinBounds.y, _screenSaverMaxBounds.y);
+        }
+
+        _imgScreenSaver.rectTransform.anchoredPosition = _screenSaverPosition;
     }
 }

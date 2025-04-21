@@ -15,6 +15,7 @@ public class ConfigSignageHADO : ConfigScript<ConfigSignageHADO>
 
     public const int DefaultDisplaySizeW = 1080;
     public const int DefaultDisplaySizeH = 1920;
+    public const float DefaultScreenSaverTime = 15f;
     public const string DefaultHostAddress = "192.168.1.2";
     public const int DefaultHostPort = 11029;
 
@@ -108,6 +109,17 @@ public class ConfigSignageHADO : ConfigScript<ConfigSignageHADO>
         }
     }
 
+    protected float screenSaverTime = DefaultScreenSaverTime;
+    public static float ScreenSaverTime
+    {
+        get { return singleton != null ? singleton.screenSaverTime : DefaultScreenSaverTime; }
+        set
+        {
+            if (singleton == null) return;
+            singleton.screenSaverTime = value;
+        }
+    }
+
     protected string connectionDeviceName = string.Empty;
     public static string ConnectionDeviceName
     {
@@ -153,6 +165,7 @@ public class ConfigSignageHADO : ConfigScript<ConfigSignageHADO>
         cameraDevicePitch = PlayerPrefs.GetFloat(nameof(cameraDevicePitch), 0f);
         debugMode = PlayerPrefs.GetInt(nameof(debugMode), 0);
         keepShotAction = PlayerPrefs.GetInt(nameof(keepShotAction), 0);
+        screenSaverTime = PlayerPrefs.GetFloat(nameof(screenSaverTime), DefaultScreenSaverTime);
         connectionDeviceName = PlayerPrefs.GetString(nameof(connectionDeviceName), string.Empty);
         hostAddress = PlayerPrefs.GetString(nameof(hostAddress), DefaultHostAddress);
         hostPort = PlayerPrefs.GetInt(nameof(hostPort), DefaultHostPort);
@@ -168,6 +181,7 @@ public class ConfigSignageHADO : ConfigScript<ConfigSignageHADO>
         PlayerPrefs.SetFloat(nameof(cameraDevicePitch), cameraDevicePitch);
         PlayerPrefs.SetInt(nameof(debugMode), debugMode);
         PlayerPrefs.SetInt(nameof(keepShotAction), keepShotAction);
+        PlayerPrefs.SetFloat(nameof(screenSaverTime), screenSaverTime);
         PlayerPrefs.SetString(nameof(connectionDeviceName), connectionDeviceName);
         PlayerPrefs.SetString(nameof(hostAddress), hostAddress);
         PlayerPrefs.SetInt(nameof(hostPort), hostPort);
@@ -183,6 +197,7 @@ public class ConfigSignageHADO : ConfigScript<ConfigSignageHADO>
         PlayerPrefs.DeleteKey(nameof(cameraDevicePitch));
         PlayerPrefs.DeleteKey(nameof(debugMode));
         PlayerPrefs.DeleteKey(nameof(keepShotAction));
+        PlayerPrefs.DeleteKey(nameof(screenSaverTime));
         PlayerPrefs.DeleteKey(nameof(connectionDeviceName));
         PlayerPrefs.DeleteKey(nameof(hostAddress));
         PlayerPrefs.DeleteKey(nameof(hostPort));
