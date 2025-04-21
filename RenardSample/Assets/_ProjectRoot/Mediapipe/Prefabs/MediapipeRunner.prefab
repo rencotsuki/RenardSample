@@ -455,8 +455,8 @@ MonoBehaviour:
   _faceLandmarkListAnnotation: {fileID: 8536955195016838793}
   _reverseTracking: 0
   _handLandmarkListAnnotation: {fileID: 2301236801774280154}
-  _enabledDetection: 1
-  _detectionAnnotation: {fileID: 9067464709524467993}
+  _enabledObjectDetection: 1
+  _objectDetectionAnnotation: {fileID: 9067464709524467993}
   filterFacePos: 1
   processNoiseFacePos: 0.001
   measurementNoiseFacePos: 0.1

@@ -36,8 +36,8 @@ namespace SignageHADO.Tracking
         [SerializeField] private MediapipeMultiFaceLandmarkAnnotationController _faceLandmarkListAnnotation = null;
         [SerializeField] private bool _reverseTracking = false;
         [SerializeField] private MediapipeMultiHandLandmarkAnnotationController _handLandmarkListAnnotation = null;
-        [SerializeField] private bool _enabledDetection = true;
-        [SerializeField] private MediapipeDetectionResultAnnotationController _detectionAnnotation = null;
+        [SerializeField] private bool _enabledObjectDetection = true;
+        [SerializeField] private MediapipeDetectionResultAnnotationController _objectDetectionAnnotation = null;
         [Header("Landmarkフィルター設定")]
         [Header("-- face --")]
         [SerializeField] private bool filterFacePos = true;
@@ -67,8 +67,6 @@ namespace SignageHADO.Tracking
         [Header("基準とする瞳間距離[cm]")]
         [SerializeField] private float basiseInterpupillary = 6.3f;
 
-        private TextureFramePool _textureFramePool = null;
-
         public Camera ViewCamera
         {
             get => _viewCamera != null ? _viewCamera : Camera.main;
@@ -87,17 +85,17 @@ namespace SignageHADO.Tracking
             set => _reverseTracking = value;
         }
 
-        public bool EnabledDetection
+        public bool EnabledObjectDetection
         {
-            get => _enabledDetection;
-            set => _enabledDetection = value;
+            get => _enabledObjectDetection;
+            set => _enabledObjectDetection = value;
         }
 
         protected int handLandmarkes => MediapipeLandmark.HandLandmarkes;
 
         public Vector2 TrakincViewSize { get; private set; } = Vector2.zero;
 
-        public int DetectionTargetCount => _detectionAnnotation != null ? _detectionAnnotation.TargetCount : 0;
+        public int DetectionTargetCount => _objectDetectionAnnotation != null ? _objectDetectionAnnotation.TargetCount : 0;
 
         protected RotationAngle rotationAngle
         {
@@ -109,10 +107,23 @@ namespace SignageHADO.Tracking
                 if (_handLandmarkListAnnotation != null)
                     _handLandmarkListAnnotation.rotationAngle = value;
 
-                if (_detectionAnnotation != null)
-                    _detectionAnnotation.rotationAngle = value;
+                if (_objectDetectionAnnotation != null)
+                    _objectDetectionAnnotation.rotationAngle = value;
             }
         }
+
+        protected TextureFramePool textureFramePool = null;
+        protected bool canUseGpuImage = false;
+        protected GlContext glContext = null;
+        protected ImageSource imageSource = null;
+        protected ImageProcessingOptions imageProcessingOptions = default;
+
+        [HideInInspector] private bool _isProcessingFace = false;
+        [HideInInspector] private bool _isProcessingHand = false;
+        [HideInInspector] private bool _isProcessingObjectDetection = false;
+        [HideInInspector] private FaceLandmarker _faceLandmarker = null;
+        [HideInInspector] private HandLandmarker _handLandmarker = null;
+        [HideInInspector] private ObjectDetector _objectDetector = null;
 
         [Serializable]
         protected class TrackingFace
@@ -204,13 +215,9 @@ namespace SignageHADO.Tracking
         [HideInInspector] private TrackingHand _rightHand = new TrackingHand();
         [HideInInspector] private Vector3 _tmpFingerLocalPos = Vector3.zero;
 
-        private bool canUseGpuImage = false;
-        private GlContext glContext = null;
-        private ImageProcessingOptions imageProcessingOptions = default;
-
-        private bool _isProcessingFace = false;
-        private bool _isProcessingHand = false;
-        private bool _isProcessingDetection = false;
+        private CancellationTokenSource _onUpdateFaceLandmarkerToken = null;
+        private CancellationTokenSource _onUpdateHandLandmarkerToken = null;
+        private CancellationTokenSource _onUpdateObjectDetectorToken = null;
 
         private void Awake()
         {
@@ -224,7 +231,7 @@ namespace SignageHADO.Tracking
             if (_faceLandmarkListAnnotation != null)
                 _faceLandmarkListAnnotation.BasiseInterpupillary = basiseInterpupillary;
 
-            _detectionAnnotation?.SetTargetCategory(detectionTargetCategory);
+            _objectDetectionAnnotation?.SetTargetCategory(detectionTargetCategory);
 
             _fingerFacePos = new KalmanFilterVector3(processNoiseFacePos, measurementNoiseFacePos, noiseMaxRangeFacePos, IsDebugLog);
             _fingerFaceRot = new KalmanFilterQuaternion(processNoiseFaceRot, measurementNoiseFaceRot, noiseMaxRangeFaceRot, IsDebugLog);
@@ -236,8 +243,18 @@ namespace SignageHADO.Tracking
         public override void Stop()
         {
             base.Stop();
-            _textureFramePool?.Dispose();
-            _textureFramePool = null;
+
+            textureFramePool?.Dispose();
+            textureFramePool = null;
+        }
+
+        protected override void OnDisposeRun()
+        {
+            base.OnDisposeRun();
+
+            OnDisposeCloseFace();
+            OnDisposeCloseHand();
+            OnDisposeCloseObjectDetection();
         }
 
         protected override async UniTask Run(CancellationToken token)
@@ -262,15 +279,15 @@ namespace SignageHADO.Tracking
             var runningMode = config.RunningMode;
 
             var optionsFace = config.GetFaceLandmarkerOptions(runningMode == Tasks.Vision.Core.RunningMode.LIVE_STREAM ? OnFaceLandmarkDetectionOutput : null);
-            faceLandmarker = FaceLandmarker.CreateFromOptions(optionsFace, GpuManager.GpuResources);
+            _faceLandmarker = FaceLandmarker.CreateFromOptions(optionsFace, GpuManager.GpuResources);
 
             var optionsHand = config.GetHandLandmarkerOptions(runningMode == Tasks.Vision.Core.RunningMode.LIVE_STREAM ? OnHandLandmarkDetectionOutput : null);
-            handLandmarker = HandLandmarker.CreateFromOptions(optionsHand, GpuManager.GpuResources);
+            _handLandmarker = HandLandmarker.CreateFromOptions(optionsHand, GpuManager.GpuResources);
 
-            var optionsObject = config.GetObjectDetectorOptions(runningMode == Tasks.Vision.Core.RunningMode.LIVE_STREAM ? OnObjectDetectionsOutput : null);
-            objectDetector = ObjectDetector.CreateFromOptions(optionsObject, GpuManager.GpuResources);
+            var optionsObjectDetector = config.GetObjectDetectorOptions(runningMode == Tasks.Vision.Core.RunningMode.LIVE_STREAM ? OnObjectDetectionsOutput : null);
+            _objectDetector = ObjectDetector.CreateFromOptions(optionsObjectDetector, GpuManager.GpuResources);
 
-            var imageSource = ImageSourceProvider.ImageSource;
+            imageSource = ImageSourceProvider.ImageSource;
             await imageSource.Play().ToUniTask(cancellationToken: token);
 
             if (!imageSource.isPrepared)
@@ -279,213 +296,341 @@ namespace SignageHADO.Tracking
                 return;
             }
 
-            _textureFramePool = new TextureFramePool(imageSource.textureWidth, imageSource.textureHeight, TextureFormat.RGBA32, 5);
+            textureFramePool = new TextureFramePool(imageSource.textureWidth, imageSource.textureHeight, TextureFormat.RGBA32, 5);
 
             screen.Initialize(imageSource);
             _worldAnnotationArea.localEulerAngles = imageSource.rotation.Reverse().GetEulerAngles();
 
             SetupAnnotationController(_faceLandmarkListAnnotation, imageSource, IsMirrored);
             SetupAnnotationController(_handLandmarkListAnnotation, imageSource, IsMirrored);
-            SetupAnnotationController(_detectionAnnotation, imageSource, IsMirrored);
+            SetupAnnotationController(_objectDetectionAnnotation, imageSource, IsMirrored);
 
             var transformationOptions = imageSource.GetTransformationOptions(IsMirrored);
             var flipHorizontally = transformationOptions.flipHorizontally;
             var flipVertically = transformationOptions.flipVertically;
             imageProcessingOptions = new ImageProcessingOptions(rotationDegrees: (int)transformationOptions.rotationAngle);
 
-            AsyncGPUReadbackRequest req = default;
-            var waitUntilReqDone = new WaitUntil(() => req.done);
-            var resultFace = FaceLandmarkerResult.Alloc(optionsFace.numFaces);
-            var resultHand = HandLandmarkerResult.Alloc(optionsHand.numHands);
-            var resultDetection = ObjectDetectionResult.Alloc(Math.Max(optionsObject.maxResults ?? 0, 0));
-
             canUseGpuImage = optionsHand.baseOptions.delegateCase == Tasks.Core.BaseOptions.Delegate.GPU &&
               SystemInfo.graphicsDeviceType == GraphicsDeviceType.OpenGLES3 &&
               GpuManager.GpuResources != null;
             glContext = canUseGpuImage ? GpuManager.GetGlContext() : null;
 
-            _isProcessingFace = false;
-            _isProcessingHand = false;
-            _isProcessingDetection = false;
+            _onUpdateFaceLandmarkerToken = CancellationTokenSource.CreateLinkedTokenSource(token);
+            OnUpdateFaceLandmark(_onUpdateFaceLandmarkerToken.Token, optionsFace, runningMode, flipHorizontally, flipVertically).Forget();
 
-            long timestampMillisec = 0;
+            _onUpdateHandLandmarkerToken = CancellationTokenSource.CreateLinkedTokenSource(token);
+            OnUpdateHandLandmark(_onUpdateHandLandmarkerToken.Token, optionsHand, runningMode, flipHorizontally, flipVertically).Forget();
+
+            _onUpdateObjectDetectorToken = CancellationTokenSource.CreateLinkedTokenSource(token);
+            OnUpdateObjectDetection(_onUpdateObjectDetectorToken.Token, optionsObjectDetector, runningMode, flipHorizontally, flipVertically).Forget();
 
             while (onRunToken != null)
             {
+                await UniTask.Yield(PlayerLoopTiming.LastUpdate, token);
                 token.ThrowIfCancellationRequested();
+            }
+        }
 
-                if (isPaused)
-                    await UniTask.WaitWhile(() => isPaused, cancellationToken: token);
+        private void OnDisposeCloseFace()
+        {
+            _onUpdateFaceLandmarkerToken?.Dispose();
+            _onUpdateFaceLandmarkerToken = null;
 
-                if (!_textureFramePool.TryGetTextureFrame(out var textureFrame))
-                    await UniTask.Yield(PlayerLoopTiming.LastUpdate, token);
+            _faceLandmarker?.Close();
+            _faceLandmarker = null;
+        }
 
-                if (textureFrame == null)
-                    continue;
+        private void OnDisposeCloseHand()
+        {
+            _onUpdateHandLandmarkerToken?.Dispose();
+            _onUpdateHandLandmarkerToken = null;
 
-                if (canUseGpuImage)
+            _handLandmarker?.Close();
+            _handLandmarker = null;
+        }
+
+        private void OnDisposeCloseObjectDetection()
+        {
+            _onUpdateObjectDetectorToken?.Dispose();
+            _onUpdateObjectDetectorToken = null;
+
+            _objectDetector?.Close();
+            _objectDetector = null;
+        }
+
+        private async UniTask OnUpdateFaceLandmark(CancellationToken token, FaceLandmarkerOptions options, Tasks.Vision.Core.RunningMode runningMode, bool flipHorizontally, bool flipVertically)
+        {
+            TextureFrame textureFrame = null;
+            long timestampMillisec = 0;
+            Image image = null;
+
+            AsyncGPUReadbackRequest req = default;
+            var waitUntilReqDone = new WaitUntil(() => req.done);
+            var result = FaceLandmarkerResult.Alloc(options.numFaces);
+
+            _isProcessingFace = false;
+
+            while (onRunToken != null)
+            {
+                try
                 {
-                    textureFrame.ReadTextureOnGPU(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                    if (isPaused)
+                        await UniTask.WaitWhile(() => isPaused, cancellationToken: token);
+
+                    if (textureFramePool != null && !_isProcessingFace)
+                    {
+                        if (textureFramePool.TryGetTextureFrame(out textureFrame))
+                        {
+                            if (textureFrame != null)
+                            {
+                                if (canUseGpuImage)
+                                {
+                                    textureFrame.ReadTextureOnGPU(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                }
+                                else
+                                {
+                                    req = textureFrame.ReadTextureAsync(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                    await waitUntilReqDone.ToUniTask(cancellationToken: token);
+                                }
+
+                                timestampMillisec = GetCurrentTimestampMillisec();
+
+                                image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
+
+                                switch (runningMode)
+                                {
+                                    case Tasks.Vision.Core.RunningMode.IMAGE:
+                                        {
+                                            if (_faceLandmarker.TryDetect(image, imageProcessingOptions, ref result))
+                                            {
+                                                _faceLandmarkListAnnotation.DrawNow(result);
+                                            }
+                                            else
+                                            {
+                                                _faceLandmarkListAnnotation.DrawNow(default);
+                                            }
+                                        }
+                                        break;
+
+                                    case Tasks.Vision.Core.RunningMode.VIDEO:
+                                        {
+                                            if (_faceLandmarker.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
+                                            {
+                                                _faceLandmarkListAnnotation.DrawNow(result);
+                                            }
+                                            else
+                                            {
+                                                _faceLandmarkListAnnotation.DrawNow(default);
+                                            }
+                                        }
+                                        break;
+
+                                    case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
+                                        {
+                                            _isProcessingFace = true;
+                                            _faceLandmarker.DetectAsync(image, timestampMillisec, imageProcessingOptions);
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    req = textureFrame.ReadTextureAsync(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
-                    await waitUntilReqDone.ToUniTask(cancellationToken: token);
+                    Log( DebugerLogType.Info, "OnUpdateFaceLandmark", $"{ex.Message}");
                 }
-
-                timestampMillisec = GetCurrentTimestampMillisec();
-
-                await OnUpdateFaceLandmark(token, runningMode, textureFrame, timestampMillisec);
-                await OnUpdateHandLandmark(token, runningMode, textureFrame, timestampMillisec);
-
-                if (EnabledDetection)
-                    await OnUpdateDetection(token, runningMode, textureFrame, timestampMillisec);
 
                 if (!canUseGpuImage)
-                    textureFrame.Release();
+                    textureFrame?.Release();
 
                 await UniTask.Yield(PlayerLoopTiming.LastUpdate, token);
+                token.ThrowIfCancellationRequested();
             }
         }
 
-        private async UniTask OnUpdateFaceLandmark(CancellationToken token, Tasks.Vision.Core.RunningMode runningMode, TextureFrame textureFrame, long timestampMillisec)
+        private async UniTask OnUpdateHandLandmark(CancellationToken token, HandLandmarkerOptions options, Tasks.Vision.Core.RunningMode runningMode, bool flipHorizontally, bool flipVertically)
         {
-            if (textureFrame == null && _isProcessingFace)
-                return;
+            TextureFrame textureFrame = null;
+            long timestampMillisec = 0;
+            Image image = null;
 
-            var image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
-            FaceLandmarkerResult result = default;
+            AsyncGPUReadbackRequest req = default;
+            var waitUntilReqDone = new WaitUntil(() => req.done);
+            var result = HandLandmarkerResult.Alloc(options.numHands);
 
-            switch (runningMode)
+            _isProcessingHand = false;
+
+            while (onRunToken != null)
             {
-                case Tasks.Vision.Core.RunningMode.IMAGE:
+                try
+                {
+                    if (isPaused)
+                        await UniTask.WaitWhile(() => isPaused, cancellationToken: token);
+
+                    if (textureFramePool != null && !_isProcessingHand)
                     {
-                        if (faceLandmarker.TryDetect(image, imageProcessingOptions, ref result))
+                        if (textureFramePool.TryGetTextureFrame(out textureFrame))
                         {
-                            _faceLandmarkListAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _faceLandmarkListAnnotation.DrawNow(default);
+                            if (textureFrame != null)
+                            {
+                                if (canUseGpuImage)
+                                {
+                                    textureFrame.ReadTextureOnGPU(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                }
+                                else
+                                {
+                                    req = textureFrame.ReadTextureAsync(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                    await waitUntilReqDone.ToUniTask(cancellationToken: token);
+                                }
+
+                                timestampMillisec = GetCurrentTimestampMillisec();
+
+                                image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
+
+                                switch (runningMode)
+                                {
+                                    case Tasks.Vision.Core.RunningMode.IMAGE:
+                                        {
+                                            if (_handLandmarker.TryDetect(image, imageProcessingOptions, ref result))
+                                            {
+                                                _handLandmarkListAnnotation.DrawNow(result);
+                                            }
+                                            else
+                                            {
+                                                _handLandmarkListAnnotation.DrawNow(default);
+                                            }
+                                        }
+                                        break;
+
+                                    case Tasks.Vision.Core.RunningMode.VIDEO:
+                                        {
+                                            if (_handLandmarker.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
+                                            {
+                                                _handLandmarkListAnnotation.DrawNow(result);
+                                            }
+                                            else
+                                            {
+                                                _handLandmarkListAnnotation.DrawNow(default);
+                                            }
+                                        }
+                                        break;
+
+                                    case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
+                                        {
+                                            _isProcessingHand = true;
+                                            _handLandmarker.DetectAsync(image, timestampMillisec, imageProcessingOptions);
+                                        }
+                                        break;
+                                }
+                            }
                         }
                     }
-                    break;
+                }
+                catch (Exception ex)
+                {
+                    Log(DebugerLogType.Info, "OnUpdateHandLandmark", $"{ex.Message}");
+                }
 
-                case Tasks.Vision.Core.RunningMode.VIDEO:
-                    {
-                        if (faceLandmarker.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
-                        {
-                            _faceLandmarkListAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _faceLandmarkListAnnotation.DrawNow(default);
-                        }
-                    }
-                    break;
+                if (!canUseGpuImage)
+                    textureFrame?.Release();
 
-                case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
-                    {
-                        _isProcessingFace = true;
-                        faceLandmarker.DetectAsync(image, timestampMillisec, imageProcessingOptions);
-
-                        await UniTask.NextFrame(token);
-                    }
-                    break;
+                await UniTask.Yield(PlayerLoopTiming.LastUpdate, token);
+                token.ThrowIfCancellationRequested();
             }
         }
 
-        private async UniTask OnUpdateHandLandmark(CancellationToken token, Tasks.Vision.Core.RunningMode runningMode, TextureFrame textureFrame, long timestampMillisec)
+        private async UniTask OnUpdateObjectDetection(CancellationToken token, ObjectDetectorOptions options, Tasks.Vision.Core.RunningMode runningMode, bool flipHorizontally, bool flipVertically)
         {
-            if (textureFrame == null || _isProcessingHand)
-                return;
+            TextureFrame textureFrame = null;
+            long timestampMillisec = 0;
+            Image image = null;
 
-            var image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
-            HandLandmarkerResult result = default;
+            AsyncGPUReadbackRequest req = default;
+            var waitUntilReqDone = new WaitUntil(() => req.done);
+            var result = ObjectDetectionResult.Alloc(Math.Max(options.maxResults ?? 0, 0));
 
-            switch (runningMode)
+            _isProcessingObjectDetection = false;
+
+            while (onRunToken != null)
             {
-                case Tasks.Vision.Core.RunningMode.IMAGE:
+                if (EnabledObjectDetection)
+                {
+                    try
                     {
-                        if (handLandmarker.TryDetect(image, imageProcessingOptions, ref result))
+                        if (isPaused)
+                            await UniTask.WaitWhile(() => isPaused, cancellationToken: token);
+
+                        if (textureFramePool != null && !_isProcessingObjectDetection)
                         {
-                            _handLandmarkListAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _handLandmarkListAnnotation.DrawNow(default);
+                            if (textureFramePool.TryGetTextureFrame(out textureFrame))
+                            {
+                                if (textureFrame != null)
+                                {
+                                    if (canUseGpuImage)
+                                    {
+                                        textureFrame.ReadTextureOnGPU(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                    }
+                                    else
+                                    {
+                                        req = textureFrame.ReadTextureAsync(imageSource.GetCurrentTexture(), flipHorizontally, flipVertically);
+                                        await waitUntilReqDone.ToUniTask(cancellationToken: token);
+                                    }
+
+                                    timestampMillisec = GetCurrentTimestampMillisec();
+
+                                    image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
+
+                                    switch (runningMode)
+                                    {
+                                        case Tasks.Vision.Core.RunningMode.IMAGE:
+                                            {
+                                                if (_objectDetector.TryDetect(image, imageProcessingOptions, ref result))
+                                                {
+                                                    _objectDetectionAnnotation.DrawNow(result);
+                                                }
+                                                else
+                                                {
+                                                    _objectDetectionAnnotation.DrawNow(default);
+                                                }
+                                            }
+                                            break;
+
+                                        case Tasks.Vision.Core.RunningMode.VIDEO:
+                                            {
+                                                if (_objectDetector.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
+                                                {
+                                                    _objectDetectionAnnotation.DrawNow(result);
+                                                }
+                                                else
+                                                {
+                                                    _objectDetectionAnnotation.DrawNow(default);
+                                                }
+                                            }
+                                            break;
+
+                                        case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
+                                            {
+                                                _isProcessingObjectDetection = true;
+                                                _objectDetector.DetectAsync(image, timestampMillisec, imageProcessingOptions);
+                                            }
+                                            break;
+                                    }
+                                }
+                            }
                         }
                     }
-                    break;
-
-                case Tasks.Vision.Core.RunningMode.VIDEO:
+                    catch (Exception ex)
                     {
-                        if (handLandmarker.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
-                        {
-                            _handLandmarkListAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _handLandmarkListAnnotation.DrawNow(default);
-                        }
+                        Log(DebugerLogType.Info, "OnUpdateObjectDetection", $"{ex.Message}");
                     }
-                    break;
 
-                case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
-                    {
-                        _isProcessingHand = true;
-                        handLandmarker.DetectAsync(image, GetCurrentTimestampMillisec(), imageProcessingOptions);
+                    if (!canUseGpuImage)
+                        textureFrame?.Release();
+                }
 
-                        await UniTask.NextFrame(token);
-                    }
-                    break;
-            }
-        }
-
-        private async UniTask OnUpdateDetection(CancellationToken token, Tasks.Vision.Core.RunningMode runningMode, TextureFrame textureFrame, long timestampMillisec)
-        {
-            if (textureFrame == null && _isProcessingDetection)
-                return;
-
-            var image = canUseGpuImage ? textureFrame.BuildGpuImage(glContext) : textureFrame.BuildCPUImage();
-            ObjectDetectionResult result = default;
-
-            switch (runningMode)
-            {
-                case Tasks.Vision.Core.RunningMode.IMAGE:
-                    {
-                        if (objectDetector.TryDetect(image, imageProcessingOptions, ref result))
-                        {
-                            _detectionAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _detectionAnnotation.DrawNow(default);
-                        }
-                    }
-                    break;
-
-                case Tasks.Vision.Core.RunningMode.VIDEO:
-                    {
-                        if (objectDetector.TryDetectForVideo(image, timestampMillisec, imageProcessingOptions, ref result))
-                        {
-                            _detectionAnnotation.DrawNow(result);
-                        }
-                        else
-                        {
-                            _detectionAnnotation.DrawNow(default);
-                        }
-                    }
-                    break;
-
-                case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
-                    {
-                        _isProcessingDetection = true;
-                        objectDetector.DetectAsync(image, timestampMillisec, imageProcessingOptions);
-
-                        await UniTask.NextFrame(token);
-                    }
-                    break;
+                await UniTask.Yield(PlayerLoopTiming.LastUpdate, token);
+                token.ThrowIfCancellationRequested();
             }
         }
 
@@ -503,8 +648,8 @@ namespace SignageHADO.Tracking
 
         private void OnObjectDetectionsOutput(ObjectDetectionResult result, Image image, long timestamp)
         {
-            _detectionAnnotation?.DrawLater(result);
-            _isProcessingDetection = false;
+            _objectDetectionAnnotation?.DrawLater(result);
+            _isProcessingObjectDetection = false;
         }
 
         #region API

@@ -6,9 +6,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Mediapipe.Unity;
-using Mediapipe.Tasks.Vision.FaceLandmarker;
-using Mediapipe.Tasks.Vision.HandLandmarker;
-using Mediapipe.Tasks.Vision.ObjectDetector;
 
 namespace SignageHADO.Tracking
 {
@@ -19,9 +16,6 @@ namespace SignageHADO.Tracking
         public bool Active => init && !isPaused;
 
         protected CancellationTokenSource onRunToken { get; private set; } = null;
-        protected FaceLandmarker faceLandmarker = null;
-        protected HandLandmarker handLandmarker = null;
-        protected ObjectDetector objectDetector = null;
 
         public RunningMode runningMode;
 
@@ -57,17 +51,9 @@ namespace SignageHADO.Tracking
             base.Stop();
             OnDisposeRun();
             ImageSourceProvider.ImageSource.Stop();
-            faceLandmarker?.Close();
-            faceLandmarker = null;
-
-            handLandmarker?.Close();
-            handLandmarker = null;
-
-            objectDetector?.Close();
-            objectDetector = null;
         }
 
-        protected void OnDisposeRun()
+        protected virtual void OnDisposeRun()
         {
             onRunToken?.Dispose();
             onRunToken = null;

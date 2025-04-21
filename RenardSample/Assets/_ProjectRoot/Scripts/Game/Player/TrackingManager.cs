@@ -67,7 +67,7 @@ namespace SignageHADO.Tracking
 
         public bool Active => mediapipeRunner != null ? mediapipeRunner.Active : false;
 
-        public bool EnabledDetection => mediapipeRunner != null ? mediapipeRunner.EnabledDetection : false;
+        public bool EnabledDetection => mediapipeRunner != null ? mediapipeRunner.EnabledObjectDetection : false;
 
         protected bool reverseTracking
         {
